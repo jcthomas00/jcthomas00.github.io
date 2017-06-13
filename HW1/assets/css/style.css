@@ -1,0 +1,173 @@
+html {
+	background-image: url("../images/cloth.png");
+	font-family: 'Arial', 'Helvetica Nueve', Helvetica, sans-serif;
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin: 0 0 100px;
+	color: #777777;
+}
+
+.header {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	width: 100%;	
+	display: flex;
+	justify-content: center;
+	box-shadow: 0px 2px 0px #cccccc;
+}
+
+.header-content{
+	width: 800px;
+}
+.tealBack {
+	text-align: center;
+	margin: 0;
+	width: 40%;
+	float: left;
+}
+
+.tealBack h1 {
+	background-color: #4aaaa5;
+	color: white;
+	margin: 0;
+	padding: 20px 20px 20px 20px;
+}
+
+.top-menu {
+	text-align: right;
+	width: 60%;
+	line-height: 75px;
+	float: left;
+	margin: 0;
+}
+
+.body-content {
+	width: 800px;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: #777777;
+}
+
+h1, h4 {
+	font-family: 'Georgia', Times New Roman, Times, serif;
+	color: #4aaaa5;
+}
+
+
+.row {
+	width: 100%;
+	clear: both;	
+	height: 20px
+}
+
+.profile-pic {
+	width: 150px;
+	float: left;
+	margin: 0px 20px 0px 0px;
+}
+
+.portfolio-thumbnail {
+	width: 300px;
+	border: 1px solid light-grey;
+	transition: 0.3s ease;
+	box-shadow: 3px 3px 3px 3px #dddddd;
+	margin:7px;
+	float: left;
+}
+
+.portfolio-thumbnail:hover {
+	transform: scale(2.5);
+	transition: 0.3s ease;
+}
+
+.portfolio-desc {
+	font-size: .75rem;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.logo-pic {
+	width: 50px;
+}
+
+.meat {
+	width: 65%;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+	border-style: solid;
+	border-width: thin;
+	border-color: #dddddd;
+	background-color: white;
+	float: left;
+	margin: 0;
+}
+.spacer {
+	width: 4.75%;
+	height: 100%;
+	padding: 0px;
+	float: left;
+	margin: 0;
+	padding: 0px;
+}
+
+.side-menu {
+	width: 20%;
+	padding: 20px;
+	float: left;
+	text-align: center;
+	margin: 0;
+	background-color: white;
+	border-style: solid;
+	border-width: thin;
+	border-color: #dddddd;
+}
+
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 30px;
+	width: 100%;
+	background-color: #777777;
+	border-top: thick #4aaaa5;
+	color: white;
+	text-align: center;
+	font-size: .7rem;
+}
+
+.footer-border {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 35px;
+	width: 100%;
+	background-color: #4aaaa5;
+}
+
+.textInput {
+	width: 95%;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+button {
+	background-color: #4AAAA5;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px; 
+	color: white;
+	font-size: 1rem;
+	border: none;
+}
+
+button:hover {
+	background-color: black;
+}
