@@ -147,23 +147,9 @@ vertical-align: bottom !important;
 position: absolute;
 top: 2%;
 z-index: 1;
-    font-size: .7rem;
 background-color: rgba(77, 79, 83, 1);
 color: white;
 text-shadow: 2px 2px #000;
-}
-
-@media only screen and (min-width:500px){
-    .eap-page-title {
-        position: absolute;
-        top: 2%;
-        z-index: 1;
-        background-color: rgba(77, 79, 83, 1);
-        padding: 10px;
-        font-size: 1.5rem;
-        color: white;
-        text-shadow: 2px 2px #000;
-    }
 }
 
 .eap-orbit-container {
@@ -193,6 +179,16 @@ list-style: none;
 }
 
 @media only screen and (min-width:580px) {
+        .eap-page-title {
+        position: absolute;
+        top: 2%;
+        z-index: 1;
+        background-color: rgba(77, 79, 83, 1);
+        padding: 10px;
+        font-size: 1.5rem;
+        color: white;
+        text-shadow: 2px 2px #000;
+    }
 .eap-problems ul li {
     font-size: .75rem !important;
     padding-bottom: .5rem;
