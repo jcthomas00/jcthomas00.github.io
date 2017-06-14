@@ -130,6 +130,7 @@ margin: 0;
 padding: 0;
 }
 
+
 .slider-image {
 right: 0;
 vertical-align: baseline;
@@ -146,12 +147,25 @@ vertical-align: bottom !important;
 position: absolute;
 top: 2%;
 z-index: 1;
-/*background-color: rgba(68, 105, 125, 0.8);*/
 background-color: rgba(77, 79, 83, 1);
-padding: 10px;
-font-size: 1.5rem;
+padding: 1px;
+font-size: 1rem;
 color: white;
 text-shadow: 2px 2px #000;
+}
+
+@media only screen and (min-width:300px){
+    .eap-page-title {
+    position: absolute;
+    top: 2%;
+    z-index: 1;
+    /*background-color: rgba(68, 105, 125, 0.8);*/
+    background-color: rgba(77, 79, 83, 1);
+    padding: 10px;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px #000;
+    }
 }
 
 .eap-orbit-container {
