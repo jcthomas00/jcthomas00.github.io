@@ -148,12 +148,11 @@ position: absolute;
 top: 2%;
 z-index: 1;
 background-color: rgba(77, 79, 83, 1);
-padding: 1px;
 color: white;
 text-shadow: 2px 2px #000;
 }
 
-@media only screen and (min-width:300px){
+@media only screen and (min-width:500px){
     .eap-page-title {
     position: absolute;
     top: 2%;
