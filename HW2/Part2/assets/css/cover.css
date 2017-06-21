@@ -9,6 +9,7 @@ a:hover {
   color: #fff;
 }
 
+
 /* Custom default button */
 .btn-default:hover,
 .btn-default:focus {
@@ -68,6 +69,11 @@ body {
 
 .logo-pic:hover {
   filter: invert(0%);
+}
+
+.profile-pic {
+  width: 200px;
+  align-self: center;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -149,7 +155,7 @@ body {
  */
 
 .cover {
-  padding: 0 20px;
+  padding: 0 20px 50px;
 }
 .cover .btn-lg {
   padding: 10px 20px;
@@ -166,7 +172,8 @@ body {
   color: rgba(255,255,255,.9);
   display: flex;
   align-items: center;
-}
+    position: fixed;
+    bottom: 0;}
 
 /*
  * Affix and center
@@ -193,6 +200,7 @@ body {
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
+
 }
 
 @media (min-width: 992px) {
