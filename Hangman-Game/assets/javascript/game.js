@@ -72,7 +72,7 @@ function problemSolved(artist) {
 			var video = JSON.parse(videoXML.responseText);
 			// console.log(video.items[0].id.videoId);
 			document.getElementById("videoSpot").innerHTML = '<iframe ' +
-			'width="560" height="315" src="http://www.youtube.com/embed/' + video.items[0].id.videoId + 
+			'width="560" height="315" src="https://www.youtube.com/embed/' + video.items[0].id.videoId + 
 			'?autoplay=1"></iframe>';
 		}
 	}
