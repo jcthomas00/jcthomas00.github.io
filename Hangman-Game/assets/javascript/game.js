@@ -5,7 +5,7 @@ var artistsDisplayed, artistToGuess;
 //Largely copied from W3School's documents on XMLHttpRequest object and XML Parsing
 // https://www.w3schools.com/xml/xml_parser.asp
 var XMLRequest = new XMLHttpRequest();
-XMLRequest.open("GET", "http://api.7digital.com/1.2/artist/bytag/top?tags=pop&pageSize=50&country=ww&oauth_consumer_key=7dh7vfe3ydzu&", true)
+XMLRequest.open("GET", "https://api.7digital.com/1.2/artist/bytag/top?tags=pop&pageSize=50&country=ww&oauth_consumer_key=7dh7vfe3ydzu&", true)
 XMLRequest.send();
 
 XMLRequest.onreadystatechange = function () {
