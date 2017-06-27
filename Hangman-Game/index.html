@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Hangman Game</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-</head>
-<body>
-	<h1>Hangman</h1>
-	<p>Try to guess this word:</p>
-	<p id="wordToGuess"></p>
-	<p id="guessedWords"></p>
-	<p id="videoSpot"></p>
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
-</body>
+	<head>
+		<title>Hangman Game</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+	</head>
+	<body class="container jumbotron">
+		<div class="row top-layer">
+			<div class="col-xs-12 col-md-6">
+				<h1 class="text-success">Hip-Hop Hangman</h1>
+				<p>Try to guess this artist:</p>
+				<h2><kbd><span  id="wordToGuess"></span></kbd></h2>
+				<p>Guesses: <span id="guessedWords"></span></p>
+					<div class="col-xs-8">
+						<p>Remaining Guesses: <span id="remainingGuesses"></span></p>
+					</div>
+					<div class="col-xs-4">
+						<button class="btn btn-danger btn-lg" onclick="giveUp()">Give Up</button>
+					</div>
+			</div>
+			<div class="col-xs-12 col-md-6 text-center">
+				<p><span id="videoSpot"></span></p>
+				<h4 id="result"></h4><br />
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
+	</body>
 </html>

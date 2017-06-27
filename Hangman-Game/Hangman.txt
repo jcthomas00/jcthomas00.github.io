@@ -1,0 +1,10 @@
+Hangman
+
+1) select a word for user to guess
+ -make array of words
+2) while the puzzle is unsolved
+	- have user input letters to guess
+	- if letter is in list of guessed letters or not a letter, ignore it
+		- else add letter to list of guessed letters and
+			- if letter is not in the word, display alert to user  
+				- else display letters in the word
