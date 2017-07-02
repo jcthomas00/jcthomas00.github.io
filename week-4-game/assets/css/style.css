@@ -1,0 +1,19 @@
+@font-face {
+	font-family: "South-Park";
+	src: url('../fonts/south park.ttf');
+}
+
+.background{
+	background: url(../img/sp-bg-4.png) no-repeat;
+background-size: cover;
+}
+
+h1{
+	font-family: "South-Park";
+	font-size: 5rem;
+	color: orange;
+	text-shadow: 2px 2px #000;
+	margin: auto;
+	width: 75%;
+	padding: 10px;
+}
