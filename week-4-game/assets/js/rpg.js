@@ -143,7 +143,7 @@ $(document).ready(function(){
 				var thumbs = $("<div>");
 				thumbs.data("hero-name", index);
 				if (horizontal === true){
-					thumbs.addClass("hero-selected col-sm-3");
+					thumbs.addClass("hero-selected col-sm-6");
 				}
 				else
 					thumbs.addClass("hero-selected col-sm-12");					
