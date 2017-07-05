@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<title></title>
 </head>
 <body class="background">
-	<h1>Celebrity Deathmatch RPG</h1>
-	<div class="hero-selection">
+<div class="content">
+		<h1>Celebrity Deathmatch</h1>
+	<div class="container">
+		<div class="row hero-selection">
+		<h2>Choose Your Hero:</h2>
+		</div>
+		<div class="row battle-section invisible">
+			<div class="col-md-4 center-block" id="hero-space">	</div>	
+			<div class="col-md-4" id="enemy-space"></div>
+			<div class="col-md-4" id="enemy-select-space"><h2>Choose Your Enemy:</h2></div>
+		</div>
+<div class="row status-section"></div>
 		
 	</div>
-	<button id="attack">Attack</button>
-	<script type="text/javascript" link="assets/js/rpg.js"></script>
+	</div>
+	<script type="text/javascript" src="assets/js/rpg.js"></script>
 </body>
 </html>

@@ -3,9 +3,18 @@
 	src: url('../fonts/south park.ttf');
 }
 
+.content {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 .background{
 	background: url(../img/sp-bg-4.png) no-repeat;
-background-size: cover;
+	background-size: cover;
+	position: relative;
 }
 
 h1{
@@ -13,7 +22,66 @@ h1{
 	font-size: 5rem;
 	color: orange;
 	text-shadow: 2px 2px #000;
+	text-align: center;
+	padding: 5px;
+}
+h2{
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 2rem;
+	color: lime;
+	text-shadow: 2px 2px #000;
+	text-align: center;
+}
+
+.small-img {
+	width: 60px;
+}
+
+.thumbnail:hover {
+	background-color: grey;
+}
+
+.status-section {
+	position: absolute;
+	bottom: 10;
+}
+
+#attack{
 	margin: auto;
-	width: 75%;
-	padding: 10px;
+}
+
+.hero-img {
+	width: 300px;
+	background: rgba(0, 0, 0, .2);
+	color: #37FF4C;
+	font-weight: bolder;
+	border: none;
+	font-size: 2rem;
+	transition: all 2s ease-in-out;
+}
+
+.hero-health {
+	width: 300px;
+	background: rgba(0, 0, 0, .2);
+	color: #37FF4C;
+	font-weight: bolder;
+	border: none;
+	font-size: 2rem;
+}
+
+.hero-dead {
+	transform-origin: 0 bottom;
+	transform: rotateX(30deg);
+	transform: rotateX(-90deg);
+}
+
+.disabled {
+	pointer-events: none;
+	opacity: .4;
+}
+
+.invisibleFighter {
+	pointer-events: none;
+	opacity: 0;
 }
