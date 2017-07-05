@@ -15,9 +15,9 @@ var character = function(name, baseHp, baseAp, counter, imgurl){
 	}
 }
 
-lordeSound = new Audio("../sounds/lorde.mp3");
-noSound = new Audio("../sounds/no.mp3");
-whatSound = new Audio("../sounds/what.mp3");
+lordeSound = new Audio("assets/sounds/lorde.mp3");
+noSound = new Audio("assets/sounds/no.mp3");
+whatSound = new Audio("assets/sounds/what.mp3");
 var curHero, curEnemy;
 
 //create hero objects and put them in an array
