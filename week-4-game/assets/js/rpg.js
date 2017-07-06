@@ -152,7 +152,7 @@ $(document).ready(function(){
 							'<a href="#">' +
 			  				'<img class="small-img" src="' + value.img + '" />' +
 			    			'<div class="caption"><strong>' +
-			      				value.name + ' HP: ' + value.hp +
+			      				value.name + ' // HP: ' + value.hp +
 			    			'</strong></div>' +
 							'</a>' +
 					'</div>');
