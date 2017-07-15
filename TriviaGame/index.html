@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia Game</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  		crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/main.js" ></script>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="container vertical-center">
+
+<!-- div used to disable page clicks -->
+<div id="overlay"></div>
+
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-sm-12 col-md-9">
+				<h1>Anime Trivia Time</h1>
+			</div>
+			<div class="col-sm-12 col-md-3">
+				<h2><div id="timer"></h2>
+			</div>
+		</div>
+		<hr>
+		<div id="result-section">
+			<p>Correct Answers: <span id="correct"></span></p>
+			<p>Incorrect Answers: <span id="incorrect"></span></p>
+			<p>Unanswered: <span id="unanswered"></span></p>
+		</div>
+		<div id="question-section">
+			<div class="row"><div class="col-sm-12">
+				<h2 id="question" class="blockquote"></h2>
+				<ul id="answer-choices"></ul>
+			</div></div>
+			<div class="row"><div class="col-sm-12">
+				<div id="result"></div>
+			</div></div>
+		</div>
+		<div class="row"><div class="col-sm-12">
+			<button id="go" class="btn btn-lg manga-button center-block">Let's Go!</button>
+		</div></div>
+	</div><!-- end of jumbotron -->
+</body>
+</html>
