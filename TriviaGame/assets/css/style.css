@@ -13,19 +13,28 @@ html, body {
 
 h1 {
 	font-family: manga-speak;
+	padding-top: 30px;
+	padding-bottom: 0;
+}
+
+#timer {
+	font-size: 3rem;
 }
 
 hr {
 	width: 100%;
 	padding: 0;
+	margin-top: 0px;
 	height: 4px;
 	color: black;
 	background-color: black;
 	border: none;
 }
 
+
 .blockquote {
 	font-family: manga-speak;
+	font-size: 2rem;
 }
 
 .vertical-center {
@@ -62,12 +71,20 @@ hr {
 	color: black;
 	font-family: manga-speak;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	padding: 15px;
 }
 
 #answer-choices li {
 	list-style: none;
 	color: black;
-	padding: 5px;
+	padding: 10px;
+}
+@media (max-width: 600px) {
+	#answer-choices li {
+		list-style: none;
+		color: black;
+		padding: 20px;
+	}
 }
 
 #answer-choices li:hover {
@@ -83,4 +100,9 @@ hr {
 	left: 0;
 	background-color: rbga(0, 0, 0, 0.8);
 	z-index: 999;
+}
+
+svg {
+  height: 150px;
+  width: 210px;
 }

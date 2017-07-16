@@ -1,7 +1,7 @@
 
 var counterInterval, quizes = [];
-var TIME_LIMIT = 5;
-var ROUND_LENGTH = 3;
+var TIME_LIMIT = 26;
+var ROUND_LENGTH = 5;
 
 //object to keep score for each round
 var score = {
@@ -36,6 +36,8 @@ var timer = {
 	countdown : function() {
 		if (timer.time > 0) {
 			$('#timer').html(--timer.time);
+			document.getElementById("arc1").setAttribute("d", 
+				describeArc(75, 75, 60, 0, (timer.time/TIME_LIMIT*360)));
 		}
 		else {
 			$('#timer').html("time's up!");	
@@ -62,13 +64,6 @@ $.getJSON('https://opentdb.com/api.php?amount=50&category=31&type=multiple',
 		});
 });
 
-function populateData(data) {
-
-	for (var i = Things.length - 1; i >= 0; i--) {
-		Things[i]
-	}
-	console.log(data.results);
-}
 
 $(document).ready(function(){
 	$('#overlay').hide();//hide the disable box
@@ -103,7 +98,6 @@ function nextQuestion() {
 		if ((score.correct + score.incorrect + score.unanswered) < score.numQuestions) {
 			//get a random question from quizes array
 			curQuiz = quizes[Math.floor(Math.random()*quizes.length)];
-	console.log(curQuiz.correctIndex);
 			//show the question and choices with a slide up animation
 			$("#question").html(curQuiz.question).hide();
 			$('#question').slideDown("slow");	
@@ -159,4 +153,30 @@ function wrongAnswer(wrongFlag) {
 	}	
 	//wait 5 seconds, then show the next question
 	window.setTimeout(nextQuestion, 5000);
+}
+
+/**** Code below copied from stackoverflow: https://stackoverflow.com/questions/5736398/ ****/
+
+function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+  var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+
+  return {
+    x: centerX + (radius * Math.cos(angleInRadians)),
+    y: centerY + (radius * Math.sin(angleInRadians))
+  };
+}
+
+function describeArc(x, y, radius, startAngle, endAngle){
+
+    var start = polarToCartesian(x, y, radius, endAngle);
+    var end = polarToCartesian(x, y, radius, startAngle);
+
+    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+    var d = [
+        "M", start.x, start.y, 
+        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
+    ].join(" ");
+
+    return d;       
 }
