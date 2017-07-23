@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento|Crimson+Text');
+
+body{
+	font-family: 'Crimson Text', serif; 
+	font-size: 2rem;
+	background-color: #ffd1dc;
+	color: #565656;
+}
+h1{
+	width: 95%; 
+	font-size: 4rem;
+	text-align: center; 
+	margin: auto;
+}
+@media screen and (min-width: 330px){
+	h1{
+		width: 95%; 
+		line-height: 1rem; 
+		border-bottom: solid; 
+	}
+}
+@media screen and (min-width: 500px){
+	h1{
+		width: 60%; 
+		line-height: 1rem; 
+	}	
+}
+@media screen and (min-width: 1000px){
+	h1{
+		width: 40%; 
+	}
+}
+h1 span{
+	background-color: #ffd1dc; 
+	font-family: 'Sacramento', cursive; 
+	padding: 10px
+}
+.queen-head{
+	border: 1px grey; 
+	padding: 30px
+}
+
+.queen-border{border-color: #565656; color: #565656;}
+.queen-button{
+	background-color: #d1f3ff;
+	color: #565656;
+	margin: 10px;
+	padding: 0px 5px;
+	font-size: 1.5rem;
+}
+#gif-space{
+	overflow: hidden;
+	overflow-y: scroll;
+	max-height: 470px;
+}
+
+#gif-space::-webkit-scrollbar-track
+{
+	background-color: #ffd1dc;
+	border-radius: 10px;
+}
+
+#gif-space::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #ffd1dc;
+}
+
+#gif-space::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #b8ecff;
+}
+
+.thumbnail
+{
+	display: inline-block; 	
+	margin-right: 20px;
+}
