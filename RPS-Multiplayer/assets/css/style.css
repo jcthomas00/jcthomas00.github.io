@@ -1,0 +1,11 @@
+h1{
+	margin: auto;
+	color: green;
+}
+
+.selected{
+	transform: scale(1.3)
+}
+.unselected{
+	visibility: hidden;
+}
