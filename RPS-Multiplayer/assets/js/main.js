@@ -1,3 +1,4 @@
+//var con;
 var rPs = {
 
     config : {
@@ -9,10 +10,11 @@ var rPs = {
         messagingSenderId: "245108560728"
     },
     database: "",
-    enteredText: "",
     numPlayers: 0,
+    playerDesignation: "",
 
     init: function() {
+
         firebase.initializeApp(rPs.config);
         database = firebase.database();
         var tempDB = database.ref('players')
@@ -22,13 +24,18 @@ var rPs = {
 
         $(".ready").on("click", function(e) {
             var curPlayer = $(e.target).attr("data-player");
-            enteredText = $('#' + curPlayer + ' .name').val().trim();
+            var enteredText = $('#' + curPlayer + ' .name').val().trim();
             if (enteredText == "") {
                 alert("Please enter a valid name")
             } else {
-                rPs.players[curPlayer] = new rPs.Player(enteredText);
+                var connectionsRef = "";
+                var connectedRef = database.ref(".info/connected");
+                rPs.playerDesignation = curPlayer;
+                rPs.players[rPs.playerDesignation] = new rPs.Player(enteredText);
                 rPs.updatePlayers();
-                database.ref().set(rPs.players);
+                connectionsRef = database.ref("/"+rPs.playerDesignation);
+                connectionsRef.set(rPs.players[rPs.playerDesignation]);
+                connectionsRef.onDisconnect().remove();
             }
         });
 
@@ -36,17 +43,20 @@ var rPs = {
         $(".move").on("click", function(e) {
             var curPlayer = $(e.target.offsetParent).attr('id');
             rPs.players[curPlayer].lastMove = $(e.target).attr("data-move");
-            $(e.target).addClass('selected');
+            $('#' + curPlayer + ' .move').not($(e.target)).hide();
             database.ref().set(rPs.players);
             console.log(curPlayer + ":" + rPs.players[curPlayer].lastMove);
-            if (rPs.players['player1'].lastMove != "" && rPs.players['player2'].lastMove != "" ) {
-                result = rPs.getResult();
-            }        
         });
 
         database.ref().on('value', function(data){
             if(data.val()!=null){
                 rPs.players = data.val();
+                if(rPs.numPlayers>1){
+                    if (rPs.players['player1'].lastMove != "" && 
+                        rPs.players['player2'].lastMove != "" ) {
+                        result = rPs.getResult();
+                    }
+                }     
                 rPs.updatePlayers();
             }
         }, function(error){alert("Error! Cannot compute!")})
@@ -54,29 +64,37 @@ var rPs = {
 
     updatePlayers: function() {
         rPs.numPlayers = 0;
+        $('.player-title').html("Player Name: ")
+        $(' .form-group').slideDown();
         for (curPlayer in rPs.players){
-            console.log(rPs.players);
             if (rPs.players[curPlayer] != null){
-                console.log(rPs.numPlayers++);
+                rPs.numPlayers++;
+                $('#' + curPlayer + ' .player-title').html("Player Name: " + rPs.players[curPlayer].name)
                 $('#' + curPlayer + ' .form-group').slideUp();
-                $('#' + curPlayer + ' .move-text').html("Waiting for another player");
+                $('.move-text').html("Waiting for another player");
+                $('.moves :button').attr('disabled', true);   
                 rPs.checkPlayers();
             }
         }
     },
+
     checkPlayers: function() {
         for (key in rPs.players) {
             if (rPs.players[key] == null) {
                 $("#" + key + " .moves :button").attr('disabled', true);
             } else if (rPs.numPlayers > 1) {
-                $("#" + key + " .moves :button").removeAttr('disabled');
+                $("#" + rPs.playerDesignation + " .moves :button").removeAttr('disabled');
                 $('#' + key + ' .move-text').html("Make your move:");
-                $('#' + key + ' .player-title').html("Player: " + rPs.players[key].name);
+                $('#' + key + ' .player-title').html("Player Name: " + rPs.players[key].name);
             }
         }
     }, //checkPlayers function
+    refresh: function(){
+        $('.moves :button').show();
+    },
 
     getResult: function() {
+        rPs.refresh();
         if(rPs.players['player1'].lastMove === rPs.players['player2'].lastMove){
             rPs.winner('tied');
         } else {
@@ -99,6 +117,7 @@ var rPs = {
             }
         }return 1;
     },
+
     winner: function(aPlayer){
         if (aPlayer === 'tied'){
             alert("Tied!");
