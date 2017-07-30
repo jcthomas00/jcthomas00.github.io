@@ -47,7 +47,12 @@
 .form {
   background: gainsboro;
 }
-
+.li-username {
+  font-size: 12px;
+  width: 100%;
+  float: right;
+  text-align: right;
+}
 .header {
   width: 100%;
   line-height: 40px;
