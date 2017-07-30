@@ -1,4 +1,3 @@
-//var con;
 var rPs = {
 
     config : {
@@ -49,8 +48,11 @@ var rPs = {
         });
 
         database.ref().on('value', function(data){
+            console.log("Plarers: " +rPs.numPlayers);
+
             if(data.val()!=null){
                 rPs.players = data.val();
+                rPs.numPlayers = data.val().length;
                 if(rPs.numPlayers>1){
                     if (rPs.players['player1'].lastMove != "" && 
                         rPs.players['player2'].lastMove != "" ) {
