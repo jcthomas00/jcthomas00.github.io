@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Test</title>
+	<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+</head>
+<body>
+
+<button id="sign-in">Sign-in with Google</button>
+
+<script type="text/javascript">
+	//GAuth Web client id: 258703035332-75citlmv9as7ifscqmqjf0j9ki077drm.apps.googleusercontent.com
+	//client secret: iN1H2q9OKwolPF7u_iDa8iwN
+
+	var config = {
+		apiKey: "AIzaSyAq8BljGpg_85mt8OWD4ndWaQGxFnXVpIE",
+		authDomain: "bootcampproject1.firebaseapp.com",
+		databaseURL: "https://bootcampproject1.firebaseio.com",
+		projectId: "bootcampproject1",
+		storageBucket: "bootcampproject1.appspot.com",
+		messagingSenderId: "258703035332"
+	};
+  firebase.initializeApp(config);
+  
+  $('#sign-in').on('click', function(){
+	  var provider = new firebase.auth.GoogleAuthProvider();
+this.auth = firebase.auth();	
+	  this.auth.signInWithPopup(provider);  
+  })
+
+
+</script>
+</body>
+</html>
