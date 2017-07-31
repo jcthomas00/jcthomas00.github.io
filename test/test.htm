@@ -33,6 +33,9 @@ function GoogApp(){
   	this.auth = firebase.auth();	
 	this.database = firebase.database();
 	this.storage = firebase.storage();
+	this.signInButton = document.getElementById('sign-in');
+
+	this.signInButton.addEventListener('click', this.signIn.bind(this));
 
 //	console.log(this.auth.onAuthStateChanged);
 	this.onAuthStateChanged = function(user) {
@@ -45,19 +48,21 @@ function GoogApp(){
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 }
-var y = new GoogApp();
+
 
   
-  $('#sign-in').on('click', function(){
+  GoogApp.prototype.signIn = function(){
 		var provider = new firebase.auth.GoogleAuthProvider();
-		auth.signInWithPopup(provider);  
+		this.auth.signInWithPopup(provider);  
   		
-  })
+  }
 
-  $('sign-out').on('click', function(){
-  	auth.signOut();
-  });
+  GoogApp.prototype.signOut = function(){
+  	this.auth.signOut();
+  	console.log("signed out");
+  }
 
+var y = new GoogApp();
 
 </script>
 </body>
