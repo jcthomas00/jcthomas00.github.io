@@ -126,6 +126,7 @@ transform: rotate(90deg);
     font-weight: bolder;
     width: 1000px;
     margin-left: 15px;
+      position: fixed;
 }
 .container{
 	padding-top: 10px;
