@@ -34,9 +34,10 @@ function GoogApp(){
 	this.database = firebase.database();
 	this.storage = firebase.storage();
 	this.signInButton = document.getElementById('sign-in');
+	this.signOutButton = document.getElementById('sign-out');
 
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
-
+	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 //	console.log(this.auth.onAuthStateChanged);
 	this.onAuthStateChanged = function(user) {
 	  if (user) { // User is signed in!
@@ -48,16 +49,16 @@ function GoogApp(){
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 }
-
-
   
-  GoogApp.prototype.signIn = function(){
+  GoogApp.prototype.signIn = function(e){
+  		e.preventDefault();
 		var provider = new firebase.auth.GoogleAuthProvider();
 		this.auth.signInWithPopup(provider);  
   		
   }
 
-  GoogApp.prototype.signOut = function(){
+  GoogApp.prototype.signOut = function(e){
+  	e.preventDefault();
   	this.auth.signOut();
   	console.log("signed out");
   }
