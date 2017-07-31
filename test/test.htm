@@ -12,6 +12,7 @@
 <body>
 
 <button id="sign-in">Sign-in with Google</button>
+<button id="sign-out">Sign Out</button>
 
 <script type="text/javascript">
 	//GAuth Web client id: 258703035332-75citlmv9as7ifscqmqjf0j9ki077drm.apps.googleusercontent.com
@@ -28,12 +29,26 @@
   firebase.initializeApp(config);
   
   $('#sign-in').on('click', function(){
-	  var provider = new firebase.auth.GoogleAuthProvider();
-this.auth = firebase.auth();	
-	  this.auth.signInWithPopup(provider);  
+		var provider = new firebase.auth.GoogleAuthProvider();
+		auth = firebase.auth();	
+		database = firebase.database();
+  		storage = firebase.storage();
+		auth.signInWithPopup(provider);  
+  		auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
   })
 
+  $('sign-out').on('click', function(){
+  	auth.signOut();
+  });
 
+onAuthStateChanged = function(user) {
+  if (user) { // User is signed in!
+    // Get profile pic and user's name from the Firebase user object.
+    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
+    var userName = user.displayName; 
+    console.log(userName);
+    } 
+}
 </script>
 </body>
 </html>
