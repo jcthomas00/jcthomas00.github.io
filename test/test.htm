@@ -18,7 +18,10 @@
 	//GAuth Web client id: 258703035332-75citlmv9as7ifscqmqjf0j9ki077drm.apps.googleusercontent.com
 	//client secret: iN1H2q9OKwolPF7u_iDa8iwN
 
-	var config = {
+
+
+function GoogApp(){
+	this.config = {
 		apiKey: "AIzaSyAq8BljGpg_85mt8OWD4ndWaQGxFnXVpIE",
 		authDomain: "bootcampproject1.firebaseapp.com",
 		databaseURL: "https://bootcampproject1.firebaseio.com",
@@ -26,29 +29,36 @@
 		storageBucket: "bootcampproject1.appspot.com",
 		messagingSenderId: "258703035332"
 	};
-  firebase.initializeApp(config);
+  	firebase.initializeApp(this.config);
+  	this.auth = firebase.auth();	
+	this.database = firebase.database();
+	this.storage = firebase.storage();
+
+//	console.log(this.auth.onAuthStateChanged);
+	this.onAuthStateChanged = function(user) {
+	  if (user) { // User is signed in!
+	    // Get profile pic and user's name from the Firebase user object.
+	    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
+	    var userName = user.displayName; 
+	    console.log(userName);
+	    } 
+	}
+	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+}
+var y = new GoogApp();
+
   
   $('#sign-in').on('click', function(){
 		var provider = new firebase.auth.GoogleAuthProvider();
-		auth = firebase.auth();	
-		database = firebase.database();
-  		storage = firebase.storage();
 		auth.signInWithPopup(provider);  
-  		auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+  		
   })
 
   $('sign-out').on('click', function(){
   	auth.signOut();
   });
 
-onAuthStateChanged = function(user) {
-  if (user) { // User is signed in!
-    // Get profile pic and user's name from the Firebase user object.
-    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
-    var userName = user.displayName; 
-    console.log(userName);
-    } 
-}
+
 </script>
 </body>
 </html>
