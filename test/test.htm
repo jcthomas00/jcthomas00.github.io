@@ -32,7 +32,7 @@ function GoogApp(){
   	firebase.initializeApp(this.config);
   	this.auth = firebase.auth();	
 	this.database = firebase.database();
-	this.users = this.database.ref('users');
+	this.users = 'users/';
 	this.storage = firebase.storage();
 	this.signInButton = document.getElementById('sign-in');
 	this.signOutButton = document.getElementById('sign-out');
@@ -47,7 +47,7 @@ function GoogApp(){
 	    var uid = user.uid; 
 	    text = {text1:"heres some text", text2:"heres more text"};
 	    console.log(user);
-	    this.users.ref('/'+uid).set({userName, profilePicUrl, text});
+	    this.database.ref(users+uid).set({userName, profilePicUrl, text});
 	    } 
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
