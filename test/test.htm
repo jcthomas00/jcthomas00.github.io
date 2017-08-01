@@ -47,6 +47,7 @@ function GoogApp(){
 	    if (this.database.ref(this.users+uid+"blah")==null){
 	    	console.log("fake doesn't exist");
 	    }
+	    console.log(this.database.ref(this.users+uid+"blah"));
 	    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
 	    var userName = user.displayName;
 	    text = {text1:"heres some text", text2:"heres more text"};
