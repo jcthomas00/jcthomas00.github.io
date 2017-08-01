@@ -45,7 +45,7 @@ function GoogApp(){
 	    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
 	    var userName = user.displayName; 
 	    console.log(userName);
-	    users.push(user);
+	    this.users.push(user);
 	    } 
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
