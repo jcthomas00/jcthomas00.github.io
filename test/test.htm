@@ -41,10 +41,14 @@ function GoogApp(){
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.onAuthStateChanged = function(user) {
 	  if (user) { // User is signed in!
+	    var uid = user.uid; 
+	  	var userFolder = this.users+uid;
 	    // Get profile pic and user's name from the Firebase user object.
+	    if (this.database.ref(this.users+uid+"blah")==null){
+	    	console.log("fake doesn't exist");
+	    }
 	    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
 	    var userName = user.displayName;
-	    var uid = user.uid; 
 	    text = {text1:"heres some text", text2:"heres more text"};
 	    console.log(user);
 	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
