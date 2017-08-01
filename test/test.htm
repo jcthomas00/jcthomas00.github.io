@@ -47,8 +47,8 @@ function GoogApp(){
 	    var uid = user.uid; 
 	    text = {text1:"heres some text", text2:"heres more text"};
 	    console.log(user);
-	    this.database.ref(users+uid).set({userName, profilePicUrl, text});
-	    } 
+	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
+	    }
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 }
