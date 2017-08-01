@@ -43,9 +43,11 @@ function GoogApp(){
 	  if (user) { // User is signed in!
 	    // Get profile pic and user's name from the Firebase user object.
 	    var profilePicUrl = user.photoURL;   // TODO(DEVELOPER): Get profile pic.
-	    var userName = user.displayName; 
+	    var userName = user.displayName;
+	    var uid = user.uid; 
+	    text = {text1:"heres some text", text2:"heres more text"};
 	    console.log(user);
-	    this.users.push({userName, profilePicUrl});
+	    this.users.ref('/'+uid).set({userName, profilePicUrl, text});
 	    } 
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
