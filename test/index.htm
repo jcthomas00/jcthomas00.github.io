@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<input type="text" id="input-text" />
+<button id="submit">Subit</button>
+<div id="message-space"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var server = io.connect('http://localhost:8080');
+server.on('connect', function(data){
+	console.log('connected to chattr');
+	var nickname = prompt('enter your name');
+	server.emit('join', nickname);
+});
+	var socket = io.connect('http://localhost:8080');
+	socket.on('messages', function(data){
+		$('#message-space').append(data);
+	});
+$('#submit').on('click', function(){
+	var message = $('#input-text').val();
+	socket.emit('messages', message);
+});
+</script>
+</body>
+</html>
+
