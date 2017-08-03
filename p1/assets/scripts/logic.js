@@ -95,7 +95,8 @@ WhoUB.prototype.analyzeText = function(){
 	}
 
 	$.ajax(settings).done(function (response) {
-	  console.log(response);
+	  console.log(response.documentSentiment.magnitude);
+	  console.log(response.documentSentiment.score);
 	});	
 
 	}
