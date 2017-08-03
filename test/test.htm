@@ -19,6 +19,7 @@
 	//GAuth Web client id: 258703035332-75citlmv9as7ifscqmqjf0j9ki077drm.apps.googleusercontent.com
 	//client secret: iN1H2q9OKwolPF7u_iDa8iwN
 $('#nlp').on('click', function(){
+	var inputText = "this one thing has got me tripping";
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -30,7 +31,7 @@ var settings = {
     "postman-token": "e21e47e7-3460-0e59-1267-4042c8af2893"
   },
   "processData": false,
-  "data": "{\r\n \"document\": {\r\n  \"content\": \"blah blah blah dont you know that I love you\",\r\n  \"type\": \"PLAIN_TEXT\"\r\n },\r\n \"encodingType\": \"UTF8\"\r\n}"
+  "data": "{\r\n \"document\": {\r\n  \"content\": inputText,\r\n  \"type\": \"PLAIN_TEXT\"\r\n },\r\n \"encodingType\": \"UTF8\"\r\n}"
 }
 
 $.ajax(settings).done(function (response) {
