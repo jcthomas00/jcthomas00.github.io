@@ -9,7 +9,7 @@
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
-	this.signOutButton.addEventListener('click', this.signOut.bind(this));
+//	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
 
@@ -28,12 +28,14 @@
   	this.auth = firebase.auth();	
 	this.database = firebase.database();
 	this.users = 'users/';					//location of all users
-
-
+	this.loginDiv.hide();
+	this.profileDiv.hide();
 
 	//called when someone logs in or out
 	this.onAuthStateChanged = function(user) {
 	  if (user) { 							// User is signed in!
+	  	this.loginDiv.hide();					// hide login button
+	  	this.profileDiv.show();
 	    var uid = user.uid; 				// get user info from google auth
 	    var profilePicUrl = user.photoURL;  
 	    var userName = user.displayName;
@@ -46,11 +48,14 @@
 		    if(snapshot.val()==null){		//User not in DB so add them
 		    	console.log("account doesn't exist");
 			} else {						//user exists, get their info    		
-			    console.log(snapshot.val().userName + " is in out Database");
+			    console.log(snapshot.val().userName + " is in our Database");
 			}
 	    });
 		//overrite firbase info
 	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
+	    }else{
+	    	this.profileDiv.hide();
+	    	this.loginDiv.show();
 	    }
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//Not sure what this line is about
@@ -58,14 +63,14 @@
 }
 
   //GoogApp method to allow users to sign in
-  GoogApp.prototype.signIn = function(e){
+  WhoUB.prototype.signIn = function(e){
   		e.preventDefault();
 		var provider = new firebase.auth.GoogleAuthProvider();
 		this.auth.signInWithPopup(provider);    		
   }
 
   //GoogApp method to allow users to sign out  
-  GoogApp.prototype.signOut = function(e){
+  WhoUB.prototype.signOut = function(e){
   	e.preventDefault();
   	this.auth.signOut();
   	console.log("signed out");
