@@ -6,6 +6,7 @@
 	this.profileDiv = $('#logged-in-stuff');
 	this.signInButton = document.getElementById('login-button');
 	this.signOutButton = document.getElementById('sign-out');	//TODO
+	this.displayTone = $('#tone-information');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -95,8 +96,11 @@ WhoUB.prototype.analyzeText = function(){
 	}
 
 	$.ajax(settings).done(function (response) {
+		$('<ul>').html($('<li>').html("Sentiment Score: " + response.documentSentiment.score)).append("Sentiment Magnitude: " + response.documentSentiment.magnitude);
+		displayTone.html();
 	  console.log(response.documentSentiment.magnitude);
 	  console.log(response.documentSentiment.score);
+
 	});	
 
 	}
