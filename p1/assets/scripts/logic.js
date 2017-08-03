@@ -1,4 +1,5 @@
-﻿function WhoUB(){
+﻿var tempOutput;
+function WhoUB(){
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
 	this.inputText = $('#input-text');
@@ -96,8 +97,10 @@ WhoUB.prototype.analyzeText = function(){
 	}
 
 	$.ajax(settings).done(function (response) {
-		let output = $('<ul>').html($('<li>').html("Sentiment Score: " + response.documentSentiment.score)).append("Sentiment Magnitude: " + response.documentSentiment.magnitude);
-		displayTone.html(output);
+			var output = $('<ul>').html($('<li>').html("Sentiment Score: " + 
+			response.documentSentiment.score)).append("Sentiment Magnitude: " + 
+			response.documentSentiment.magnitude);
+		$('#tone-information').html(output);
 	  console.log(response.documentSentiment.magnitude);
 	  console.log(response.documentSentiment.score);
 
