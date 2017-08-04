@@ -88,6 +88,7 @@ function WhoUB(){
 }
 	//show historical sentiments in the sentiment div
 	WhoUB.prototype.displaySentimentHistory = function(){
+		console.log(this.texts);
 		$('.sentiments-eq').html("");
 		for(key in this.texts){
 			let sentimentContainer = $('<div class="medium-3 cell">');
