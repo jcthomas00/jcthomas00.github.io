@@ -19,7 +19,7 @@ function WhoUB(){
 		this.text = text;
 		this.time = new Date().toLocaleString('en-US')
 		this.score = score;
-		this.magnitude = magnitude
+		this.magnitude = magnitude;
 	}
 	this.texts = [];						//holds all user input
 	//current user info
@@ -68,7 +68,7 @@ function WhoUB(){
 			} else {								//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
 			    this.texts = snapshot.val().texts;
-			    this.userWelcome.html(userName);
+			    this.userWelcome.html(this.userName);
 			}
 	    }.bind(this));
 // //overrite firbase info
