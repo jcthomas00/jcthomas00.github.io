@@ -53,8 +53,8 @@ function WhoUB(){
 			} else {						//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
 			    this.userWelcome.html(userName);
-			}.bind(this)
-	    });
+			}
+	    }.bind(this));
 		//overrite firbase info
 	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
 	    }else{
@@ -104,12 +104,12 @@ WhoUB.prototype.analyzeText = function(){
 				var output = $('<ul>').html($('<li>').html("Sentiment Score: " + 
 				response.documentSentiment.score)).append("Sentiment Magnitude: " + 
 				response.documentSentiment.magnitude);
-			$('#tone-information').html(output);
+				this.displayTone.html(output);
 			//var newSnippet = .
 		  console.log(response.documentSentiment.magnitude);
 		  console.log(response.documentSentiment.score);
 
-		});	
+		}.bind(this));	
 
 	}
 
