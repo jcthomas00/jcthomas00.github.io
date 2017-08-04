@@ -51,7 +51,7 @@ function WhoUB(){
 		    	console.log("account doesn't exist");
 			} else {						//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
-			    this.userWelcome.html(userName);
+			    $('#user-welcome').html(userName);
 			}
 	    });
 		//overrite firbase info
