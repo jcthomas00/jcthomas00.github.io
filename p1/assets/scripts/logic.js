@@ -121,7 +121,7 @@ WhoUB.prototype.analyzeText = function(){
 				response.documentSentiment.score)).append("Sentiment Magnitude: " + 
 				response.documentSentiment.magnitude);
 				this.displayTone.html(output);
-		texts.push(new Snippet(inputText, 				//put user input into texts array
+		this.texts.push(new Snippet(inputText, 				//put user input into texts array
 			response.documentSentiment.score, response.documentSentiment.magnitude));
 		//write to firebase
 		let uName = this.userName;
