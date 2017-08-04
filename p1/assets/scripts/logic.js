@@ -97,12 +97,10 @@ WhoUB.prototype.analyzeText = function(){
 	}
 
 	$.ajax(settings).done(function (response) {
-
 			var output = $('<ul>').html($('<li>').html("Sentiment Score: " + 
 			response.documentSentiment.score)).append("Sentiment Magnitude: " + 
 			response.documentSentiment.magnitude);
 		$('#tone-information').html(output);
-
 	  console.log(response.documentSentiment.magnitude);
 	  console.log(response.documentSentiment.score);
 
