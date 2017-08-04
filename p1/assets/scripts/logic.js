@@ -111,8 +111,8 @@ function WhoUB(){
 // '</div>
 			curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch>')
 				.addClass(calloutClass).html($('<div class="card-info-label">')
-				.html($('<div class="card-info-label-text">').html(this.texts[key].score)))
-				.append($('<div class="card-info-content">')).html(this.texts[key].text)
+				.append($('<div class="card-info-label-text">').html(this.texts[key].score)))
+				.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))
 			);
 
 			$('#sentiments-eq').append(curSentiment);
