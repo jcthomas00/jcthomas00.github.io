@@ -6,10 +6,37 @@
   src="http://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <!-- Compressed CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation.min.css"  />
 
+<!-- Compressed JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/js/foundation.min.js" ></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+ 
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"> -->
 </head>
 <body>
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+        <!-- left off-canvas markup -->
+      </div>
+      <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+        <!-- right off-canvas markup -->
+      </div>
+      <div class="off-canvas-content" data-off-canvas-content>
+        <!-- page content -->
+      </div>
+    </div>
+  </div>
+
+<button type="button" class="button" data-toggle="offCanvasLeft">Open Menu</button>
+
+
 
 <button id="sign-in">Sign-in with Google</button>
 <button id="sign-out">Sign Out</button>
@@ -31,7 +58,7 @@ var settings = {
     "postman-token": "e21e47e7-3460-0e59-1267-4042c8af2893"
   },
   "processData": false,
-  "data": "{\r\n \"document\": {\r\n  \"content\": \""+inputText+"\",\r\n  \"type\": \"PLAIN_TEXT\"\r\n },\r\n \"encodingType\": \"UTF8\"\r\n}"
+  "data": "{\r\n \"document\": {\r\n  \"content\": \"" + inputText +"\",\r\n  \"type\": \"PLAIN_TEXT\"\r\n },\r\n \"encodingType\": \"UTF8\"\r\n}"
 }
 
 $.ajax(settings).done(function (response) {
