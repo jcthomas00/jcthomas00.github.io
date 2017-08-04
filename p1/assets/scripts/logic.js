@@ -67,7 +67,9 @@ function WhoUB(){
 		    // this.database.ref(this.users+this.uid).set({this.userName, this.profilePicUrl, this.texts});
 			} else {								//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
-			    this.texts = snapshot.val().texts;
+	    		if(snapshot.val().texts!= undefined){
+			    	this.texts = snapshot.val().texts;
+			    }
 			    this.userWelcome.html(this.userName);
 			}
 	    }.bind(this));
