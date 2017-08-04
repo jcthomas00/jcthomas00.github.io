@@ -88,7 +88,7 @@ WhoUB.prototype.analyzeText = function(){
 		var settings = {									//settings to make a CORS call to NLP
 		  "async": true,
 		  "crossDomain": true,
-		  "url": "http://utcors1.herokuapp.com/https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyAjapmLhqEBFwEd5He9XZXCDP50Ew_GZiU",
+		  "url": "https://utcors1.herokuapp.com/https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyAjapmLhqEBFwEd5He9XZXCDP50Ew_GZiU",
 		  "method": "POST",
 		  "headers": {
 		    "content-type": "application/json",
