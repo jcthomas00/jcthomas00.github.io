@@ -3,7 +3,7 @@ function WhoUB(){
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
 	this.signInButton = document.getElementById('login-button');
-	this.signOutButton = document.getElementById('sign-out');	//TODO
+	this.signOutButton = document.getElementById('sign-out');	
 	this.inputText = $('#input-text');
 	this.loginDiv = $('#logged-out-stuff');
 	this.profileDiv = $('#logged-in-stuff');
@@ -14,6 +14,16 @@ function WhoUB(){
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
+
+	this.Snippet = function(text, score = 0, magnitude = 0){		//Object to hold individual user inputs
+		this.text = text;
+		this.time = new Date().toLocaleString('en-US')
+		this.score = score;
+		this.magnitude = magnitude;
+	}
+	this.texts = [];						//holds all user inputs
+	//current user info
+	this.uid = null, this.profilePicUrl = "", this.userName = "";
 
 	//firebase initialization
 	this.config = {
@@ -36,34 +46,40 @@ function WhoUB(){
 
 	//called when someone logs in or out
 	this.onAuthStateChanged = function(user) {
-	  if (user) { 							// User is signed in!
-	  	this.loginDiv.hide();					// hide login button
-	  	this.profileDiv.show();
-	    var uid = user.uid; 				// get user info from google auth
-	    var profilePicUrl = user.photoURL;  
-	    var userName = user.displayName;
-	    text = {text1:"heres some text", text2:"heres more text"};
-	  	var userFolder = this.users+uid;	//get the folder for each user
+	  if (user) { 									// User is signed in!
+	  	this.loginDiv.hide();						// hide login button
+	  	this.profileDiv.show();	
+	    this.uid = user.uid; 						// get user info from google auth
+	    this.profilePicUrl = user.photoURL;  
+	    this.userName = user.displayName;
 
 	  	//look for the user based on UID
-	    this.database.ref(this.users+uid).once('value')
+	    this.database.ref(this.users+this.uid).once('value')
 	    	.then(function(snapshot) {
-		    if(snapshot.val()==null){		//User not in DB so add them
+		    if(snapshot.val()==null){				//User not in DB so add them
 		    	console.log("account doesn't exist");
-			} else {						//user exists, get their info    		
+	    		//write to firebase
+				let uName = this.userName;			//new vars b/c set doesn't like dots
+				let uPic = this.profilePicUrl;
+				let uTexts = this.texts;
+				this.database.ref(this.users+this.uid).set({uName, uPic, uTexts});
+			//write user info into firebase
+		    // this.database.ref(this.users+this.uid).set({this.userName, this.profilePicUrl, this.texts});
+			} else {								//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
+			    this.texts = snapshot.val().texts;
 			    this.userWelcome.html(userName);
 			}
 	    }.bind(this));
-		//overrite firbase info
-	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
+// //overrite firbase info
+// this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
 	    }else{
 	    	console.log("logged out");
 	    	this.profileDiv.hide();
 	    	this.loginDiv.show();
 	    }
 	}
-	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//Not sure what this line is about
+	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//send any auth changes to Google's obj
 	
 }
 
@@ -105,10 +121,17 @@ WhoUB.prototype.analyzeText = function(){
 				response.documentSentiment.score)).append("Sentiment Magnitude: " + 
 				response.documentSentiment.magnitude);
 				this.displayTone.html(output);
-			//var newSnippet = .
+		texts.push(new Snippet(inputText, 				//put user input into texts array
+			response.documentSentiment.score, response.documentSentiment.magnitude));
+		//write to firebase
+		let uName = this.userName;
+		let uPic = this.profilePicUrl;
+		let uTexts = this.texts;
+		this.database.ref(this.users+this.uid)			
+			.set({uName, uPic, uTexts});
+
 		  console.log(response.documentSentiment.magnitude);
 		  console.log(response.documentSentiment.score);
-
 		}.bind(this));	
 
 	}
