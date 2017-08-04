@@ -2,24 +2,18 @@
 <html lang="en-us">
 
 <head>
-<!-- 	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
-	<link rel="stylesheet" href="assets/css/foundation.css"  />
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/foundation.min.css" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WhoUB</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhoUB - Discover Yourself</title>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
- --><script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-	 <script src="assets/js/vendor/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+ 	<script src="assets/js/vendor/jquery.js"></script>
 </head>
 
 <body>
-<div class="row">
-<div class="columns">
-  <div class="small-2 columns">3 columns</div>
-  <div class="small-3 columns">9 columns</div>
-</div>
-</div>
 
 <!-- Add a Sticky Menu -->
 <div data-sticky-container>
@@ -52,15 +46,15 @@
 
 	<div id="logged-in-stuff">
 		<div class="callout large">
-			<div class="title-bar"><h3>Personality Profile</h3></div>
-			<div class="row">
-				<div class="small-5 column">
-					<label for="input-text">Enter the text you want analyzed:
+			<div class="title-bar"><h3>Personality Profile</h3></div><br>
+			<div class="grid-x grid-padding-x">
+				<div class="small-6 cell">
+					<div class="card-divider">Enter the text you want analyzed:</div>
 						<textarea id="input-text" rows="3"></textarea>
-					</label>
+					
 					<button id="send-text" class="success large button">Submit</button>
 				</div>
-				<div class="small-4 column" >
+				<div class="small-6 cell" >
 					<div class="card">
 						<div class="card-divider">Tone Information</div>
 						<div id="tone-information" class="card-section">
@@ -87,7 +81,10 @@
   <section id="second" data-magellan-target="second">
 		<div class="callout large">
 		  	<p>
-				  		“Knowing yourself is the beginning of all wisdom.” ― Aristotle
+		  		<blockquote>
+		  			“Knowing yourself is the beginning of all wisdom.” 
+		  			<cite>Aristotle</cite>
+	  			</blockquote>
 				Self-reflection can be a fruitful and and worthwhile endeavor, but without quantitative input, it can lead to self-deprecation. With advances in natural language processing, self-assessments can be quantified and lead to concrete goals for improvement or just a better understanding of one’s personality traits. WhoIB can take your text interactions and thoughts to give you a snapshot of your tone. In the long-term, we will build a personality profile that will give you insights into Who U B.
 		  	</p>
 	  	</div>
@@ -96,11 +93,10 @@
 </div>
 
 
-<!--     <script type="text/javascript" src="assets/scripts/logic.js"></script> -->
-<!--     <script src="assets/js/vendor/what-input.js"></script>
- -->    
+    <script type="text/javascript" src="assets/scripts/logic.js"></script>
+    <script src="assets/js/vendor/what-input.js"></script>
  	<script src="assets/js/vendor/foundation.js"></script>
-<!--     <script src="assets/js/app.js"></script>
- --></body>
+    <script src="assets/js/app.js"></script>
+</body>
 
 </html>
