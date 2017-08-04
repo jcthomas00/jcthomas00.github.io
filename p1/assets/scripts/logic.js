@@ -88,7 +88,7 @@ function WhoUB(){
 }
 	//show historical sentiments in the sentiment div
 	WhoUB.prototype.displaySentimentHistory = function(){
-		$('.sentiments-eq').html("");
+		$('#sentiments-eq').html("");
 		let sentimentContainer, calloutClass, curSentiment;
 		for(key in this.texts){
 		console.log(this.texts[key].score);
@@ -101,7 +101,7 @@ function WhoUB(){
 			}
 			curSentiment = sentimentContainer.html($('<div class="callout" data-equalizer-watch>')
 				.addClass(calloutClass).html(this.texts[key].text+this.texts[key].time+this.texts[key].score));
-			$('.sentiments-eq').append(curSentiment);
+			$('#sentiments-eq').append(curSentiment);
 		}
 	}
   //GoogApp method to allow users to sign in
