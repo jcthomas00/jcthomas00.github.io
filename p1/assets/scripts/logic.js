@@ -97,8 +97,24 @@ function WhoUB(){
 			}else if(this.texts[key].score < 0 && this.texts[key].magnitude > 0){
 				calloutClass = "alert";
 			}
-			curSentiment = sentimentContainer.html($('<div class="callout" data-equalizer-watch>')
-				.addClass(calloutClass).html(this.texts[key].text+this.texts[key].time+this.texts[key].score));
+
+// '<div class="card-info success">
+// '  <div class="card-info-label">
+// '   <div class="card-info-label-text">
+// '      Win!
+// '    </div>
+// '  </div>
+// '  <div class="card-info-content">
+// '    <h3 class="lead"> Mad Max: Fury Road</h3>
+// '    <p>In a post-apocalyptic world, in which people fight to the death, Max teams up with a mysterious woman, Furiousa, to try and survive.</p>
+// '  </div>
+// '</div>
+			curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch>')
+				.addClass(calloutClass).html($('<div class="card-info-label">')
+				.html($('<div class="card-info-label-text">').html(this.texts[key].score)))
+				.append($('<div class="card-info-content">')).html(this.texts[key].text)
+			);
+
 			$('#sentiments-eq').append(curSentiment);
 		}
 	}
@@ -147,9 +163,9 @@ WhoUB.prototype.analyzeText = function(){
 		let uPic = this.profilePicUrl;
 		let uTexts = this.texts;
 		this.database.ref(this.users+this.uid).set({uName, uPic, uTexts});
-
-		  console.log(response.documentSentiment.magnitude);
-		  console.log(response.documentSentiment.score);
+		//empty out input box and show new text in container
+		this.inputText.val("");
+		displaySentimentHistory();
 		}.bind(this));	
 
 	}
