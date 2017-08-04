@@ -2,22 +2,24 @@
 <html lang="en-us">
 
 <head>
+<!-- 	<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+	<link rel="stylesheet" href="assets/css/foundation.css"  />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WhoUB</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
- 
-<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous"> -->
-<script src="assets/js/vendor/foundation.js"></script>
-<link rel="stylesheet" href="assets/css/foundation.css"  />
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ --><script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	 <script src="assets/js/vendor/jquery.js"></script>
 </head>
 
 <body>
+<div class="row">
+<div class="columns">
+  <div class="small-2 columns">3 columns</div>
+  <div class="small-3 columns">9 columns</div>
+</div>
+</div>
 
 <!-- Add a Sticky Menu -->
 <div data-sticky-container>
@@ -40,66 +42,65 @@
 <!-- Add content where magellan will be linked -->
 <div class="sections">
   <section id="first" data-magellan-target="first">
-	 <div id="logged-out-stuff"><a href="#" id="login-button"><img src="assets/img/btn_google.png"></a></div>
-	<div id="logged-in-stuff" class="container">
-		<div class="header"><h1>Personality Profile</h1></div>
-		<div class="row"><div class="columns col-sm-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">Check Your Self [before you wreck yourself]</div>
-				<div class="panel-body"><div class="row">
-					<div class="columns col-sm-6  form-group">
-						<label for="input-text">Enter the text you want analyzed:</label>
-						<textarea id="input-text" class="form-control" rows="3"></textarea>
-						<br>
-						<button id="send-text" class="btn btn-large btn-success">Submit</button>
-					</div>
-					<div class="columns col-sm-6">
-						<div class="panel panel-default">
-							<div class="panel-heading">Tone Information</div>
-							<div id="tone-information" class="panel-body">
-								Enter Text and submit to see the results here
-							</div>
+	 <div id="logged-out-stuff">
+		<div class="callout large">
+		  <h5>Please sign in to begin your inner journey</h5>
+		  <p>If you do not have an account, simply click the Google sign-in button and we will automatically create one for you.</p>
+	 	<a href="#" id="login-button"><img src="assets/img/btn_google.png"></a>
+		</div>
+ 	</div>
+
+	<div id="logged-in-stuff">
+		<div class="callout large">
+			<div class="title-bar"><h3>Personality Profile</h3></div>
+			<div class="row">
+				<div class="small-5 column">
+					<label for="input-text">Enter the text you want analyzed:
+						<textarea id="input-text" rows="3"></textarea>
+					</label>
+					<button id="send-text" class="success large button">Submit</button>
+				</div>
+				<div class="small-4 column" >
+					<div class="card">
+						<div class="card-divider">Tone Information</div>
+						<div id="tone-information" class="card-section">
+							Enter Text and submit to see the results here
 						</div>
 					</div>
-				</div></div>
+				</div>
 			</div>
-		</div></div>
-		<div class="row"><div class="columns col-sm-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">Your Personality Profile</div>
-				<div class="panel-body">Enter more text for us to determine your personality</div>
-			</div>
-		</div></div>
-		<div class="row"><div class="columns col-sm-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">Your Previous Tones</div>
-				<div class="panel-body">You can find all your old tone queries here</div>
-			</div>
-		</div></div>
-	</div>
-
+			<div class="row"><div class="small-12 columns">
+				<div class="callout">
+					<div class="title-bar">Your Personality</div>
+					<div class="callout-section">Enter more text for us to determine your personality</div>
+				</div>
+			</div></div>
+			<div class="row"><div class="small-12 columns">
+				<div class="callout">
+					<div class="title-bar">Your Previous Tones</div>
+					<div class="callout-section">You can find all your old tone queries here</div>
+				</div>
+			</div></div>
+		</div>					<!-- end of callout -->
+	</div>    					<!-- end of logged-in stuff -->
   </section>
-  <section id="second" data-magellan-target="second">Second Section</section>
+  <section id="second" data-magellan-target="second">
+		<div class="callout large">
+		  	<p>
+				  		“Knowing yourself is the beginning of all wisdom.” ― Aristotle
+				Self-reflection can be a fruitful and and worthwhile endeavor, but without quantitative input, it can lead to self-deprecation. With advances in natural language processing, self-assessments can be quantified and lead to concrete goals for improvement or just a better understanding of one’s personality traits. WhoIB can take your text interactions and thoughts to give you a snapshot of your tone. In the long-term, we will build a personality profile that will give you insights into Who U B.
+		  	</p>
+	  	</div>
+  </section>
   <section id="third" data-magellan-target="third">Third Section</section>
 </div>
 
-<div class="off-canvas-wrapper">
-    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-      <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
-        <!-- left off-canvas markup -->
-      </div>
-      <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
-        <!-- right off-canvas markup -->
-      </div>
-      <div class="off-canvas-content" data-off-canvas-content>
-        <!-- page content -->
-      </div>
-    </div>
-  </div>
-
-<button type="button" class="button" data-toggle="offCanvasLeft">Open Menu</button>
 
 <!--     <script type="text/javascript" src="assets/scripts/logic.js"></script> -->
-</body>
+<!--     <script src="assets/js/vendor/what-input.js"></script>
+ -->    
+ 	<script src="assets/js/vendor/foundation.js"></script>
+<!--     <script src="assets/js/app.js"></script>
+ --></body>
 
 </html>
