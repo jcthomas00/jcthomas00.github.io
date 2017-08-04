@@ -11,8 +11,7 @@ function WhoUB(){
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
-//	this.signOutButton.addEventListener('click', this.signOut.bind(this));
-
+	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
 
 	//firebase initialization
@@ -56,6 +55,7 @@ function WhoUB(){
 		//overrite firbase info
 	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
 	    }else{
+	    	console.log("logged out");
 	    	this.profileDiv.hide();
 	    	this.loginDiv.show();
 	    }
