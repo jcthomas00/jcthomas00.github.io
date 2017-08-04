@@ -2,12 +2,13 @@
 function WhoUB(){
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
+	this.signInButton = document.getElementById('login-button');
+	this.signOutButton = document.getElementById('sign-out');	//TODO
 	this.inputText = $('#input-text');
 	this.loginDiv = $('#logged-out-stuff');
 	this.profileDiv = $('#logged-in-stuff');
-	this.signInButton = document.getElementById('login-button');
-	this.signOutButton = document.getElementById('sign-out');	//TODO
 	this.displayTone = $('#tone-information');
+	this.userWelcome = $('#user-welcome');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -50,6 +51,7 @@ function WhoUB(){
 		    	console.log("account doesn't exist");
 			} else {						//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
+			    this.userWelcome.html(userName);
 			}
 	    });
 		//overrite firbase info
@@ -81,30 +83,31 @@ function WhoUB(){
 //function to take user input and return their sentiment
 WhoUB.prototype.analyzeText = function(){
 	var inputText = this.inputText.val().trim();
-	if (inputText != "") {
-	var settings = {
-	  "async": true,
-	  "crossDomain": true,
-	  "url": "http://utcors1.herokuapp.com/https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyAjapmLhqEBFwEd5He9XZXCDP50Ew_GZiU",
-	  "method": "POST",
-	  "headers": {
-	    "content-type": "application/json",
-	    "cache-control": "no-cache",
-	    "postman-token": "e21e47e7-3460-0e59-1267-4042c8af2893"
-	  },
-	  "processData": false,
-	  "data": "{\r\n \"document\": {\r\n  \"content\": \"" + inputText +"\",\r\n  \"type\": \"PLAIN_TEXT\"\r\n },\r\n \"encodingType\": \"UTF8\"\r\n}"
-	}
+	if (inputText != "") {									//make sure user typed something
+		var settings = {									//settings to make a CORS call to NLP
+		  "async": true,
+		  "crossDomain": true,
+		  "url": "http://utcors1.herokuapp.com/https://language.googleapis.com/v1/documents:analyzeSentiment?key=AIzaSyAjapmLhqEBFwEd5He9XZXCDP50Ew_GZiU",
+		  "method": "POST",
+		  "headers": {
+		    "content-type": "application/json",
+		    "cache-control": "no-cache",
+		    "postman-token": "e21e47e7-3460-0e59-1267-4042c8af2893"
+		  },
+		  "processData": false,
+		  "data": "{\r\n \"document\": {\r\n  \"content\": \"" + inputText +"\",\r\n  \"type\": \"PLAIN_TEXT\"\r\n },\r\n \"encodingType\": \"UTF8\"\r\n}"
+		}
 
-	$.ajax(settings).done(function (response) {
-			var output = $('<ul>').html($('<li>').html("Sentiment Score: " + 
-			response.documentSentiment.score)).append("Sentiment Magnitude: " + 
-			response.documentSentiment.magnitude);
-		$('#tone-information').html(output);
-	  console.log(response.documentSentiment.magnitude);
-	  console.log(response.documentSentiment.score);
+		//make ajax call and show results to user
+		$.ajax(settings).done(function (response) {
+				var output = $('<ul>').html($('<li>').html("Sentiment Score: " + 
+				response.documentSentiment.score)).append("Sentiment Magnitude: " + 
+				response.documentSentiment.magnitude);
+			$('#tone-information').html(output);
+		  console.log(response.documentSentiment.magnitude);
+		  console.log(response.documentSentiment.score);
 
-	});	
+		});	
 
 	}
 
