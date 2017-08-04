@@ -21,7 +21,7 @@ function WhoUB(){
 		this.score = score;
 		this.magnitude = magnitude;
 	}
-	this.texts = [];						//holds all user inputs
+	this.texts = [];						//holds all user input
 	//current user info
 	this.uid = null, this.profilePicUrl = "", this.userName = "";
 
