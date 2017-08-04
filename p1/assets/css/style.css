@@ -1,1 +1,8 @@
-﻿
+﻿#sentiments-eq{
+	max-height: 150px;
+	text-overflow: ellipsis;
+}
+#second{
+	color: white;
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
