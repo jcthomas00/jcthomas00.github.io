@@ -88,17 +88,18 @@ function WhoUB(){
 }
 	//show historical sentiments in the sentiment div
 	WhoUB.prototype.displaySentimentHistory = function(){
-		console.log(this.texts);
 		$('.sentiments-eq').html("");
+		let sentimentContainer, calloutClass, curSentiment;
 		for(key in this.texts){
-			let sentimentContainer = $('<div class="medium-3 cell">');
-			let calloutClass = "secondary";
+		console.log(this.texts[key].score);
+			sentimentContainer = $('<div class="medium-3 cell">');
+			calloutClass = "secondary";
 			if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
 				calloutClass = "success";
 			}else if(this.texts[key].score < -0.6 && this.texts[key].magnitude > 1){
 				calloutClass = "alert";
 			}
-				sentimentContainer.html($('<div class="callout" data-equalizer-watch>')
+			curSentiment = sentimentContainer.html($('<div class="callout" data-equalizer-watch>')
 				.addClass(calloutClass).html(this.texts[key].text+this.texts[key].time+this.texts[key].score));
 			$('.sentiments-eq').append(curSentiment);
 		}
