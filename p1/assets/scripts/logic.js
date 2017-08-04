@@ -98,8 +98,8 @@ function WhoUB(){
 			}else if(this.texts[key].score < -0.6 && this.texts[key].magnitude > 1){
 				calloutClass = "alert";
 			}
-				sentimentContainer.html($('<div class="callout" data-equalizer-watch>'))
-				.addClass(calloutClass)).html(this.texts[key].text+this.texts[key].time+this.texts[key].score));
+				sentimentContainer.html($('<div class="callout" data-equalizer-watch>')
+				.addClass(calloutClass).html(this.texts[key].text+this.texts[key].time+this.texts[key].score));
 			$('.sentiments-eq').append(curSentiment);
 		}
 	}
