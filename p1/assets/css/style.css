@@ -1,8 +1,10 @@
-﻿#sentiments-eq .cell{
+﻿#sentiments-eq .cell .callout{
 	max-height: 150px;
-	text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
-#second callout{
+#second .callout{
 	color: white;
 	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }

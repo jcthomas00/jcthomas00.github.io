@@ -55,7 +55,7 @@ function WhoUB(){
 	    this.userName = user.displayName;
 
 	  	//look for the user based on UID
-	    this.database.ref(this.users+this.uid).once('value')
+	    this.database.ref(this.users+this.uid).once('value')	//check if we have their data
 	    	.then(function(snapshot) {
 		    if(snapshot.val()==null){				//User not in DB so add them
 		    	console.log("account doesn't exist");
@@ -75,9 +75,7 @@ function WhoUB(){
 			    this.userWelcome.html(this.userName);
 			}
 	    }.bind(this));
-// //overrite firbase info
-// this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
-	    }else{
+      }else{									//user logged out - hide profile info and show login
 	    	console.log("logged out");
 	    	this.profileDiv.hide();
 	    	this.loginDiv.show();
