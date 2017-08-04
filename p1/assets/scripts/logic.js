@@ -96,7 +96,7 @@ function WhoUB(){
 			calloutClass = "secondary";
 			if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
 				calloutClass = "success";
-			}else if(this.texts[key].score < -0.6 && this.texts[key].magnitude > 1){
+			}else if(this.texts[key].score < 0 && this.texts[key].magnitude > 0){
 				calloutClass = "alert";
 			}
 			curSentiment = sentimentContainer.html($('<div class="callout" data-equalizer-watch>')
