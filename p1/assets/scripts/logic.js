@@ -14,6 +14,7 @@ function WhoUB(){
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
+	this.displaySentimentHistory.bind(this);
 
 	this.Snippet = function(text, score = 0, magnitude = 0){		//Object to hold individual user inputs
 		this.text = text;
@@ -69,6 +70,7 @@ function WhoUB(){
 			    console.log(snapshot.val().uName + " is in our Database");
 	    		if(snapshot.val().uTexts!= undefined){
 			    	this.texts = snapshot.val().uTexts;
+			    	this.displaySentimentHistory();
 			    }
 			    this.userWelcome.html(this.userName);
 			}
@@ -84,7 +86,22 @@ function WhoUB(){
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//send any auth changes to Google's obj
 	
 }
-
+	//show historical sentiments in the sentiment div
+	WhoUB.prototype.displaySentimentHistory = function(){
+		$('.sentiments-eq').html("");
+		for(key in this.texts){
+			let sentimentContainer = $('<div class="medium-3 cell">');
+			let calloutClass = "secondary";
+			if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
+				calloutClass = "success";
+			}else if(this.texts[key].score < -0.6 && this.texts[key].magnitude > 1){
+				calloutClass = "alert";
+			}
+				sentimentContainer.html($('<div class="callout" data-equalizer-watch>'))
+				.addClass(calloutClass)).html(this.texts[key].text+this.texts[key].time+this.texts[key].score));
+			$('.sentiments-eq').append(curSentiment);
+		}
+	}
   //GoogApp method to allow users to sign in
   WhoUB.prototype.signIn = function(e){
   		e.preventDefault();
