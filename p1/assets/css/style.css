@@ -32,6 +32,9 @@ h1{
   margin: 1rem 0;
   overflow: hidden;
   border-radius: 0;
+ 	max-height: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .card-info .card-info-label {
