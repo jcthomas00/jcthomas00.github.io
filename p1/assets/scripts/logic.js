@@ -30,6 +30,7 @@ function WhoUB(){
   	this.auth = firebase.auth();	
 	this.database = firebase.database();
 	this.users = 'users/';					//location of all users
+	this.snippets = 'snippets/';			//location of all analyzed text
 	this.loginDiv.hide();
 	this.profileDiv.hide();
 
@@ -51,8 +52,8 @@ function WhoUB(){
 		    	console.log("account doesn't exist");
 			} else {						//user exists, get their info    		
 			    console.log(snapshot.val().userName + " is in our Database");
-			    $('#user-welcome').html(userName);
-			}
+			    this.userWelcome.html(userName);
+			}.bind(this)
 	    });
 		//overrite firbase info
 	    this.database.ref(this.users+uid).set({userName, profilePicUrl, text});
@@ -104,6 +105,7 @@ WhoUB.prototype.analyzeText = function(){
 				response.documentSentiment.score)).append("Sentiment Magnitude: " + 
 				response.documentSentiment.magnitude);
 			$('#tone-information').html(output);
+			//var newSnippet = .
 		  console.log(response.documentSentiment.magnitude);
 		  console.log(response.documentSentiment.score);
 
