@@ -19,7 +19,7 @@ function WhoUB(){
 		this.text = text;
 		this.time = new Date().toLocaleString('en-US')
 		this.score = score;
-		this.magnitude = magnitude;
+		this.magnitude = magnitude
 	}
 	this.texts = [];						//holds all user input
 	//current user info
