@@ -66,9 +66,9 @@ function WhoUB(){
 			//write user info into firebase
 		    // this.database.ref(this.users+this.uid).set({this.userName, this.profilePicUrl, this.texts});
 			} else {								//user exists, get their info    		
-			    console.log(snapshot.val().userName + " is in our Database");
-	    		if(snapshot.val().texts!= undefined){
-			    	this.texts = snapshot.val().texts;
+			    console.log(snapshot.val().uName + " is in our Database");
+	    		if(snapshot.val().uTexts!= undefined){
+			    	this.texts = snapshot.val().uTexts;
 			    }
 			    this.userWelcome.html(this.userName);
 			}
@@ -129,8 +129,7 @@ WhoUB.prototype.analyzeText = function(){
 		let uName = this.userName;
 		let uPic = this.profilePicUrl;
 		let uTexts = this.texts;
-		this.database.ref(this.users+this.uid)			
-			.set({uName, uPic, uTexts});
+		this.database.ref(this.users+this.uid).set({uName, uPic, uTexts});
 
 		  console.log(response.documentSentiment.magnitude);
 		  console.log(response.documentSentiment.score);
