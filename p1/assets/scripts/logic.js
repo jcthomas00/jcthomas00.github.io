@@ -202,7 +202,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		}
 	}).done(res => {
 		console.log("text: ");
-		console.log(Math.floor(res.personality[4].percentile*100);
+		console.log(Math.floor(res.personality[4].percentile*100));
 		console.log("personality: ");
 		console.log(res.personality);
 		var personalityDiv = $("#personality");
