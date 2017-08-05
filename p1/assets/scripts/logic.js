@@ -3,7 +3,9 @@ function WhoUB(){
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
 	this.signInButton = document.getElementById('login-button');
-	this.signOutButton = document.getElementById('sign-out');	
+	this.signOutButton = document.getElementById('sign-out');
+	this.modalDelete = document.getElementById('modal-delete-button');
+	this.modalClose = document.getElementById('modal-close-button');	
 	this.snipDetails = document.getElementsByClassName('card-info');
 	this.inputText = $('#input-text');
 	this.loginDiv = $('#logged-out-stuff');
@@ -14,15 +16,15 @@ function WhoUB(){
 	this.curText = $('#current-text');
 	this.curScore = $('#current-score');
 	this.curMagnitude = $('#current-magnitude');
+	this.modal = $('#sentimentModal');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
-	for (var i=0; i< this.snipDetails.length; i++){
-		console.log(key+":"); console.log(this.snipDetails);
-		//this.snipDetails[key].item().addEventListener('click', this.showSnipDetails.bind(this));
-	}
+	this.modalClose.addEventListener('click', this.closeModal.bind(this));
+	this.modalDelete.addEventListener('click', this.deleteSentiment(this));
+
 	$('.card-info').on('click', function(item){console.log(item)});
 	this.displaySentimentHistory.bind(this);
 	this.Snippet = function(text, score = 0, magnitude = 0){		//Object to hold individual user inputs
@@ -92,6 +94,10 @@ function WhoUB(){
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//send any auth changes to Google's obj
 }
 
+WhoUB.prototype.modalClose = function(){
+	this.modal.foundation('close');
+}
+
 //show historical sentiments in the sentiment div
 WhoUB.prototype.displaySentimentHistory = function(){
 	$('#sentiments-eq').html("");
@@ -112,7 +118,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 					$('#modal-date').html(snippetToExpand.time);
 					$('#modal-score').html(snippetToExpand.score);
 					$('#modal-magnitude').html(snippetToExpand.magnitude);
-					$('#sentimentModal').foundation('open');
+					this.modal.foundation('open');
 					console.log(snippetToExpand);
 			}.bind(this)) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
