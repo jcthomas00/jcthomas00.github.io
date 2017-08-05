@@ -226,7 +226,7 @@ WhoUB.prototype.analyzeText = function(e) {
 	}
 }
 
-WhoUB.prototype.pushToFirebase(){
+WhoUB.prototype.pushToFirebase = function(){
 			//write to firebase
 		let uName = this.userName;
 		let uPic = this.profilePicUrl;
