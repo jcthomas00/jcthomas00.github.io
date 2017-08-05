@@ -30,11 +30,10 @@ h1{
   border: 1px solid #8a8a8a;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   margin: 1rem 0;
+    text-overflow: ellipsis;
   overflow: hidden;
   border-radius: 0;
  	height: 250px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .card-info .card-info-label {
