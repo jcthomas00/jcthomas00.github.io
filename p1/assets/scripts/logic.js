@@ -4,7 +4,7 @@ function WhoUB(){
 	this.sendText = document.getElementById('send-text');
 	this.signInButton = document.getElementById('login-button');
 	this.signOutButton = document.getElementById('sign-out');	
-	this.snipDetails = document.getElementByClassName('card-info');
+	this.snipDetails = document.getElementsByClassName('card-info');
 	this.inputText = $('#input-text');
 	this.loginDiv = $('#logged-out-stuff');
 	this.profileDiv = $('#logged-in-stuff');
@@ -19,7 +19,10 @@ function WhoUB(){
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
-	this.snipDetails.addEventListener('click', this.showSnipDetails.bind(this));
+	for (key in this.snipDetails){
+		console.log(key+":"); console.log(this.snipDetails);
+		//this.snipDetails[key].item().addEventListener('click', this.showSnipDetails.bind(this));
+	}
 	this.displaySentimentHistory.bind(this);
 	this.Snippet = function(text, score = 0, magnitude = 0){		//Object to hold individual user inputs
 		this.text = text;
@@ -93,7 +96,6 @@ WhoUB.prototype.displaySentimentHistory = function(){
 	$('#sentiments-eq').html("");
 	let sentimentContainer, calloutClass, curSentiment;
 	for(key in this.texts.reverse()){
-	console.log(this.texts[key].score);
 		sentimentContainer = $('<div class="medium-3 cell">');
 		calloutClass = "secondary";
 		if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
