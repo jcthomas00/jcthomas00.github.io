@@ -106,7 +106,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 		}
 
 		curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
-			'data-key="' + key + '">').attr("onclick", this.showSnipDetails) //Wrap data in a card and add key as attribute
+			'data-key="' + key + '">').attr("onclick", function(index, val){console.log(val)}) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
 			.append($('<div class="card-info-label-text">').html(this.texts[key].score)))	//add score as label
 			.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))//inject text
