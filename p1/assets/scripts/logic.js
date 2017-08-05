@@ -98,18 +98,8 @@ function WhoUB(){
 				calloutClass = "alert";
 			}
 
-// '<div class="card-info success">
-// '  <div class="card-info-label">
-// '   <div class="card-info-label-text">
-// '      Win!
-// '    </div>
-// '  </div>
-// '  <div class="card-info-content">
-// '    <h3 class="lead"> Mad Max: Fury Road</h3>
-// '    <p>In a post-apocalyptic world, in which people fight to the death, Max teams up with a mysterious woman, Furiousa, to try and survive.</p>
-// '  </div>
-// '</div>
-			curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch>')
+			curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
+				'data-key="' + key + '">')
 				.addClass(calloutClass).html($('<div class="card-info-label">')
 				.append($('<div class="card-info-label-text">').html(this.texts[key].score)))
 				.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))
@@ -152,12 +142,17 @@ WhoUB.prototype.analyzeText = function(){
 
 		//make ajax call and show results to user
 		$.ajax(settings).done(function (response) {
-				var output = $('<ul>').html($('<li>').html("Sentiment Score: " + 
-				response.documentSentiment.score)).append("Sentiment Magnitude: " + 
-				response.documentSentiment.magnitude);
-				this.displayTone.html(output);
-		this.texts.push(new this.Snippet(inputText, 				//put user input into texts array
-			response.documentSentiment.score, response.documentSentiment.magnitude));
+				// var output = $('<ul>').html($('<li>').html("Score: " + 
+				// response.documentSentiment.score)).append("Sentiment Magnitude: " + 
+				// response.documentSentiment.magnitude);
+				// this.displayTone.html(output);
+				$('#current-date').html(newSnip.time);
+				$('#current-text').html(newSnip.text);
+				$('#current-score').html(newSnip.score);
+				$('#current-magnitude').html(newSnip.magnitude);
+				let newSnip = new this.Snippet(inputText, response.documentSentiment.score, 
+					response.documentSentiment.magnitude)
+		this.texts.push(newSnip); 				//put user input into texts array
 		//write to firebase
 		let uName = this.userName;
 		let uPic = this.profilePicUrl;

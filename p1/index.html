@@ -48,16 +48,69 @@
 							<h3 class="float-left">Personality Profile of <span id="user-welcome"></span></h3>
 							<br class="show-for-small-only">
 							<span class="float-right">
-								<button id="sign-out" class="secondary button">Sign Out</button>
+								<button id="sign-out" class="alert button">Sign Out</button>
 							</span></div><br>
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 medium-6 cell">
-									<div class="card-divider">Enter the text you want analyzed:</div>
-									<textarea id="input-text" rows="3"></textarea>
-									
-									<button id="send-text" class="success large button">Submit</button>
-								</div>
+<!-- 									<div class="card-divider">Enter the text you want analyzed:</div>
+ --><!-- 									<textarea id="input-text" rows="3"></textarea>
+ -->									<!-- Foundation building block input -->
+									<div class="status-update-input-box">
+  <form>
+    <div class="row input-box-container">
+      <div class="columns">
+        <label> <!-- Add a Label here to give this input box a heading -->
+          <textarea id="input-text" rows="7" placeholder="Enter some text and hit Analyze."></textarea>
+        </label>
+      </div>
+    </div>
+    <div class="row medium-collapse user-action-container">
+           <div class="small-12 medium-5 columns">
+        <div class="user-submit-box">
+          <input type="submit" id="send-text" class="button small" value="ANALYZE">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+									<!-- end of block input -->
+<!-- 									<button id="send-text" class="success large button">Submit</button>
+ -->								</div>
 								<div class="small-12 medium-6 cell" >
+								<!-- Foundation Block Card -->
+<div class="travel-feature-card">
+  <div class="travel-feature-card-header">
+    <div class="grid-x grid-padding-x">
+       <div class="medium-12 cells">
+         <h5 class="travel-feature-card-subtitle">How you feel today:</h5>
+
+      </div>
+    </div>  
+  </div>
+
+
+  <div class="travel-feature-card-details">
+    <h6 id="current-date" class="travel-feature-card-date-range"></h6>
+    <div class="grid-x grid-padding-x">
+      <div class="small-12 medium-9 cells travel-feature-card-content">
+
+            <h6 class="travel-feature-card-title">Your Text</h6>
+            <p id="current-text">The rooms and suites have free WiFi and flat-screen TVs. Upgrades include outdoor decks with the gorgeous Manhattan views, 24-hour room service, and  cocktail bars.</p>
+  
+      </div>
+
+      <div class="small-12 medium-3 cells travel-feature-card-price">
+        <h6>Score: <span id="current-score"></span></h6>
+        <p class="travel-feature-card-price-subtext">with a magnitude of <span id="current-magnitude"></span></p>
+      </div>
+    </div> 
+  </div>
+</div>
+
+
+								<!-- End of Card -->
 									<div class="card">
 										<div class="card-divider">Tone Information</div>
 										<div id="tone-information" class="card-section">
@@ -188,8 +241,8 @@
 						<!-- end foundation footer -->
 					</section>
 				</div>
-				<script type="text/javascript" src="assets/scripts/logic.js"></script>
-				<script src="assets/js/vendor/what-input.js"></script>
+<!-- 				<script type="text/javascript" src="assets/scripts/logic.js"></script>
+ -->				<script src="assets/js/vendor/what-input.js"></script>
 				<script src="assets/js/vendor/foundation.js"></script>
 				<script src="assets/js/app.js"></script>
 			</body>
