@@ -207,11 +207,11 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		console.log(res.personality);
 		var personalityDiv = $("#personality");
 
-		$('#openness-graph').attr("style", '"height:'+(Math.floor(res.personality[0].percentile*100)+'%;"'));
-		$('#conscientiousness-graph').attr("style", '"height:'+(Math.floor(res.personality[1].percentile*100)+'%;"'));
-		$('#extraversion-graph').attr("style", '"height:'+(Math.floor(res.personality[2].percentile*100)+'%;"'));
-		$('#agreeableness-graph').attr("style", '"height:'+(Math.floor(res.personality[3].percentile*100)+'%;"'));
-		$('#emotional-graph').attr("style", '"height:'+(Math.floor(res.personality[4].percentile*100)+'%;"'));
+		$('#openness-graph').attr("style", '"height:'+(Math.floor(res.personality[0].percentile*100)+'%;"');
+		$('#conscientiousness-graph').attr("style", '"height:'+(Math.floor(res.personality[1].percentile*100))+'%;"');
+		$('#extraversion-graph').attr("style", '"height:'+(Math.floor(res.personality[2].percentile*100))+'%;"');
+		$('#agreeableness-graph').attr("style", '"height:'+(Math.floor(res.personality[3].percentile*100))+'%;"');
+		$('#emotional-graph').attr("style", '"height:'+(Math.floor(res.personality[4].percentile*100))+'%;"');
 
 		for (var i = 0; i < res.personality.length; i++) {
 			var personality = res.personality[i];
