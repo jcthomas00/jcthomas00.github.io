@@ -30,7 +30,7 @@ function WhoUB() {
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
 
 	this.modalClose.addEventListener('click', this.closeModal.bind(this));
-	this.modalDelete.addEventListener('click', this.deleteSentiment(this));
+	this.modalDelete.addEventListener('click', this.deleteSentiment.bind(this));
 
 	$('.card-info').on('click', function(item){console.log(item)});
 	this.displaySentimentHistory.bind(this);
