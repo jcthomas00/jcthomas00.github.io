@@ -96,7 +96,7 @@ function WhoUB(){
 WhoUB.prototype.displaySentimentHistory = function(){
 	$('#sentiments-eq').html("");
 	let sentimentContainer, calloutClass, curSentiment;
-	for(key in this.texts){
+	for(key in this.texts.reverse()){
 		sentimentContainer = $('<div class="medium-3 cell">');
 		calloutClass = "secondary";
 		if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
@@ -106,23 +106,23 @@ WhoUB.prototype.displaySentimentHistory = function(){
 		}
 
 		curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
-			'data-key="' + key + '">').click(function(index, val){
-	let snippetToExpand = this.texts[$(val.currentTarget).attr("data-key")];
-	console.log(e);console.log(snippetToExpand);				
+			'data-key="' + key + '">').click(function(val){
+					let snippetToExpand = this.texts[$(val.currentTarget).attr("data-key")];
+					console.log(snippetToExpand);
 			}) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
 			.append($('<div class="card-info-label-text">').html(this.texts[key].score)))	//add score as label
 			.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))//inject text
 		);
 
-		$('#sentiments-eq').prepend(curSentiment);					//append the card to whats already there
+		$('#sentiments-eq').append(curSentiment);					//append the card to whats already there
 	}
 }
 
 //when user clicks a snippet from history
 WhoUB.prototype.showSnipDetails = function(e){
-	let snippetToExpand = this.texts[$(e.currentTarget).attr("data-key")];
-	console.log(e);console.log(snippetToExpand);
+	let snippetToExpand = $(val.currentTarget).attr("data-key");
+	console.log(e);
 }
 
 //GoogApp method to allow users to sign in
