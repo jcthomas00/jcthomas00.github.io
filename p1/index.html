@@ -6,8 +6,7 @@
 		<title>WhoUB - Discover Yourself</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-<!-- 		<link rel="stylesheet" href="assets/foundation-icons/foundation-icons.css" />
- -->		<link rel="stylesheet" href="assets/css/foundation.min.css" />
+		<link rel="stylesheet" href="assets/css/foundation.min.css" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 		<script src="assets/js/vendor/jquery.js"></script>
@@ -52,129 +51,110 @@
 							</span></div><br>
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 medium-6 cell">
-<!-- 									<div class="card-divider">Enter the text you want analyzed:</div>
- --><!-- 									<textarea id="input-text" rows="3"></textarea>
- -->									<!-- Foundation building block input -->
 									<div class="status-update-input-box">
-  <form>
-    <div class="row input-box-container">
-      <div class="columns">
-        <label> <!-- Add a Label here to give this input box a heading -->
-          <textarea id="input-text" rows="7" placeholder="Enter some text and hit Analyze."></textarea>
-        </label>
-      </div>
-    </div>
-    <div class="row medium-collapse user-action-container">
-           <div class="small-12 medium-5 columns">
-        <div class="user-submit-box">
-          <input type="submit" id="send-text" class="button small" value="ANALYZE">
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-
-
-									<!-- end of block input -->
-<!-- 									<button id="send-text" class="success large button">Submit</button>
- -->								</div>
-								<div class="small-12 medium-6 cell" >
-								<!-- Foundation Block Card -->
-<div class="travel-feature-card">
-  <div class="travel-feature-card-header">
-    <div class="grid-x grid-padding-x">
-       <div class="medium-12 cells">
-         <h5 class="travel-feature-card-subtitle">How you feel today:</h5>
-
-      </div>
-    </div>  
-  </div>
-
-
-  <div class="travel-feature-card-details">
-    <h6 id="current-date" class="travel-feature-card-date-range"></h6>
-    <div class="grid-x grid-padding-x">
-      <div class="small-12 medium-8 cells travel-feature-card-content">
-
-            <h6 class="travel-feature-card-title">Your Text</h6>
-            <p id="current-text">Enter some text and click Analyze to see your current sentiment score.</p>
-  
-      </div>
-
-      <div class="small-12 medium-4 cells travel-feature-card-price">
-        <h6>Score: <span id="current-score">0</span></h6>
-        <p class="travel-feature-card-price-subtext">Magnitude: <span id="current-magnitude">0</span></p>
-      </div>
-    </div> 
-  </div>
-</div>
-
-
-								<!-- End of Card -->
-<!-- 									<div class="card">
-										<div class="card-divider">Tone Information</div>
-										<div id="tone-information" class="card-section">
-											Enter Text and submit to see the results here
+										<form>
+											<div class="row input-box-container">
+												<div class="columns">
+													<label> <!-- Add a Label here to give this input box a heading -->
+													<textarea id="input-text" rows="7" placeholder="Enter some text and hit Analyze."></textarea>
+												</label>
+											</div>
 										</div>
-									</div>
- -->								</div>
+										<div class="row medium-collapse user-action-container">
+											<div class="small-12 medium-5 columns">
+												<div class="user-submit-box">
+													<input type="submit" id="send-text" class="button small" value="ANALYZE">
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!-- end of block input -->
 							</div>
-							<div class="row"><div class="small-12 columns">
-								<div class="callout">
-									<div class="title-bar">Your Personality</div>
-									<div class="callout-section">Enter more text for us to determine your personality</div>
-								</div>
-							</div></div>
-							<div class="row"><div class="small-12 columns">
-								<div class="callout">
-									<div class="title-bar">Your Previous Tones</div>
-									<hr>
-									<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium" id="sentiments-eq">
-										<div class="medium-3 cell">
-											<div class="callout" data-equalizer-watch>
-												<img src= "">
-											</div>
-										</div>
-										<div class="medium-3 cell">
-											<div class="callout" data-equalizer-watch>
-												<p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
-											</div>
-										</div>
-										<div class="medium-3 cell">
-											<div class="callout" data-equalizer-watch>
-												<img src= "">
-											</div>
-										</div>
-										<div class="medium-3 cell">
-											<div class="callout" data-equalizer-watch>
-												<img src= "">
+							<div class="small-12 medium-6 cell" >
+								<!-- Foundation Block Card -->
+								<div class="travel-feature-card">
+									<div class="travel-feature-card-header">
+										<div class="grid-x grid-padding-x">
+											<div class="medium-12 cells">
+												<h5 class="travel-feature-card-subtitle">How you feel today:</h5>
 											</div>
 										</div>
 									</div>
-									<div class="callout-section">You can find all your old tone queries here</div>
-								</div>
-							</div></div>
-							</div>						<!-- end of callout -->
-							</div>    					<!-- end of logged-in stuff -->
-						</section>
-						<!-- About Us Section -->
-						<section id="second" data-magellan-target="second">
-							<div class="callout large">
-								
-								<div class="quote-inline-wrap-article-content">
-									<div class="quote-inline-wrap float-right">
-										<div class="quote-inline-marks">“</div>
-										<div class="quote-inline-testimonial">
-											<p>Knowing yourself is the beginning of all wisdom.</p>
-										</div>
-										<div class="quote-inline-person">
-											<div class="quote-inline-photo">
-												<img src="https://pbs.twimg.com/profile_images/548973005179588608/PbUTS1N3.jpeg" class="" height="" width="" alt="">
+									<div class="travel-feature-card-details">
+										<h6 id="current-date" class="travel-feature-card-date-range"></h6>
+										<div class="grid-x grid-padding-x">
+											<div class="small-12 medium-8 cells travel-feature-card-content">
+												<h6 class="travel-feature-card-title">Your Text</h6>
+												<p id="current-text">Enter some text and click Analyze to see your current sentiment score.</p>
+												
 											</div>
-											<p>Aristotle</p>
+											<div class="small-12 medium-4 cells travel-feature-card-price">
+												<h6>Score: <span id="current-score">0</span></h6>
+												<p class="travel-feature-card-price-subtext">Magnitude: <span id="current-magnitude">0</span></p>
+											</div>
 										</div>
 									</div>
-									<p><h1>About Our Software</h1>
+								</div>
+								<!-- End of Card -->
+							</div>
+						</div>
+						<div class="row"><div class="small-12 columns">
+							<div class="callout">
+								<div class="title-bar">Your Personality</div>
+								<div class="callout-section">Enter more text for us to determine your personality</div>
+							</div>
+						</div></div>
+						<div class="row"><div class="small-12 columns">
+							<div class="callout">
+								<div class="title-bar">Your Previous Tones</div>
+								<hr>
+								<div class="grid-x grid-padding-x" data-equalizer data-equalize-on="medium" id="sentiments-eq">
+									<div class="medium-3 cell">
+										<div class="callout" data-equalizer-watch>
+											<img src= "">
+										</div>
+									</div>
+									<div class="medium-3 cell">
+										<div class="callout" data-equalizer-watch>
+											<p>Pellentesque habitant morbi tristique senectus et netus et, ante.</p>
+										</div>
+									</div>
+									<div class="medium-3 cell">
+										<div class="callout" data-equalizer-watch>
+											<img src= "">
+										</div>
+									</div>
+									<div class="medium-3 cell">
+										<div class="callout" data-equalizer-watch>
+											<img src= "">
+										</div>
+									</div>
+								</div>
+								<div class="callout-section">You can find all your old tone queries here</div>
+							</div>
+						</div></div>
+						</div>						<!-- end of callout -->
+						</div>    					<!-- end of logged-in stuff -->
+					</section>
+					<!-- About Us Section -->
+					<section id="second" data-magellan-target="second">
+						<div class="callout large">
+							
+							<div class="quote-inline-wrap-article-content">
+								<div class="quote-inline-wrap float-right">
+									<div class="quote-inline-marks">“</div>
+									<div class="quote-inline-testimonial">
+										<p>Knowing yourself is the beginning of all wisdom.</p>
+									</div>
+									<div class="quote-inline-person">
+										<div class="quote-inline-photo">
+											<img src="https://pbs.twimg.com/profile_images/548973005179588608/PbUTS1N3.jpeg" class="" height="" width="" alt="">
+										</div>
+										<p>Aristotle</p>
+									</div>
+								</div>
+								<p><h1>About Our Software</h1>
 									Self-reflection can be a fruitful and and worthwhile endeavor, but without quantitative input, it can lead to self-deprecation. With advances in natural language processing, self-assessments can be quantified and lead to concrete goals for improvement or just a better understanding of one’s personality traits. WhoIB can take your text interactions and thoughts to give you a snapshot of your tone. In the long-term, we will build a personality profile that will give you insights into Who U B.
 								</p>
 							</div>
