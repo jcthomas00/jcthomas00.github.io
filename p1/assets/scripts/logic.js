@@ -102,8 +102,12 @@ function WhoUB() {
 }
 
 WhoUB.prototype.deleteSentiment = function(e){
+	console.log(this.texts);	
+	console.log($(e.target).attr("data-key"));
+	this.texts.splice($(e.target).attr("data-key"), 1);
+	console.log(this.texts);	
+	
 	this.modal.foundation('close');
-	console.log(e);
 }
 
 WhoUB.prototype.closeModal = function(){
@@ -133,7 +137,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 					this.modalDate.html(snippetToExpand.time);
 					this.modalScore.html(snippetToExpand.score);
 					this.modalMagnitude.html(snippetToExpand.magnitude);
-					$(this.modalClose).attr('data-key', curSnippet)
+					$(this.modalDelete).attr('data-key', curSnippet)
 					this.modal.foundation('open');
 					console.log(snippetToExpand);
 			}.bind(this)) //Wrap data in a card and add key as attribute
