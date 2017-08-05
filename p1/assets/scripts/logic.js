@@ -106,8 +106,9 @@ WhoUB.prototype.displaySentimentHistory = function(){
 		}
 
 		curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
-			'data-key="' + key + '">').click(function(val){
-					let snippetToExpand = this.texts[$(val.currentTarget).attr("data-key")];
+			'data-key="' + key + '">').click(function(e){
+					let snippetIndex = $(e.currentTarget).attr("data-key");
+					let snippetToExpand = this.texts[snippetIndex];
 					console.log(snippetToExpand);
 			}) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
