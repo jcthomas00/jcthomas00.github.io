@@ -110,7 +110,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 					let snippetIndex = $(e.currentTarget).attr("data-key");
 					let snippetToExpand = this.texts[snippetIndex];
 					console.log(snippetToExpand);
-			}) //Wrap data in a card and add key as attribute
+			}.bind(this)) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
 			.append($('<div class="card-info-label-text">').html(this.texts[key].score)))	//add score as label
 			.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))//inject text
