@@ -1,4 +1,5 @@
 ﻿var tempOutput;
+
 function WhoUB(){
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
@@ -7,6 +8,7 @@ function WhoUB(){
 	this.modalDelete = document.getElementById('modal-delete-button');
 	this.modalClose = document.getElementById('modal-close-button');	
 	this.snipDetails = document.getElementsByClassName('card-info');
+
 	this.inputText = $('#input-text');
 	this.loginDiv = $('#logged-out-stuff');
 	this.profileDiv = $('#logged-in-stuff');
@@ -94,7 +96,11 @@ function WhoUB(){
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//send any auth changes to Google's obj
 }
 
-WhoUB.prototype.modalClose = function(){
+WhoUB.prototype.deleteSentiment = function(){
+	this.modal.foundation('close');
+}
+
+WhoUB.prototype.closeModal = function(){
 	this.modal.foundation('close');
 }
 
