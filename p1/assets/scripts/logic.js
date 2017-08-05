@@ -200,8 +200,10 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			content: combinedText
 		}
 	}).done(res => {
-		console.log("finished: " +res);
-
+		console.log("finished. res: ");
+		console.log(res);
+		console.log("personality: ");
+		console.log(res.personality);
 		var personalityDiv = $("#personality");
 
 
