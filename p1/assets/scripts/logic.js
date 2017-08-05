@@ -4,18 +4,23 @@ function WhoUB(){
 	this.sendText = document.getElementById('send-text');
 	this.signInButton = document.getElementById('login-button');
 	this.signOutButton = document.getElementById('sign-out');	
+	this.snipDetails = document.getElementByClassName('card-info');
 	this.inputText = $('#input-text');
 	this.loginDiv = $('#logged-out-stuff');
 	this.profileDiv = $('#logged-in-stuff');
 	this.displayTone = $('#tone-information');
 	this.userWelcome = $('#user-welcome');
+	this.curDate = $('#current-date');
+	this.curText = $('#current-text');
+	this.curScore = $('#current-score');
+	this.curMagnitude = $('#current-magnitude');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
+	this.snipDetails.addEventListener('click', this.showSnipDetails.bind(this));
 	this.displaySentimentHistory.bind(this);
-
 	this.Snippet = function(text, score = 0, magnitude = 0){		//Object to hold individual user inputs
 		this.text = text;
 		this.time = new Date().toLocaleString('en-US')
@@ -65,7 +70,6 @@ function WhoUB(){
 				let uTexts = this.texts;
 				this.database.ref(this.users+this.uid).set({uName, uPic, uTexts});
 			//write user info into firebase
-		    // this.database.ref(this.users+this.uid).set({this.userName, this.profilePicUrl, this.texts});
 			} else {								//user exists, get their info    		
 			    console.log(snapshot.val().uName + " is in our Database");
 	    		if(snapshot.val().uTexts!= undefined){
@@ -75,52 +79,57 @@ function WhoUB(){
 			    this.userWelcome.html(this.userName);
 			}
 	    }.bind(this));
-      }else{									//user logged out - hide profile info and show login
+      }else{										//user logged out - hide profile info and show login
 	    	console.log("logged out");
 	    	this.profileDiv.hide();
 	    	this.loginDiv.show();
 	    }
 	}
 	this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));	//send any auth changes to Google's obj
-	
 }
-	//show historical sentiments in the sentiment div
-	WhoUB.prototype.displaySentimentHistory = function(){
-		$('#sentiments-eq').html("");
-		let sentimentContainer, calloutClass, curSentiment;
-		for(key in this.texts){
-		console.log(this.texts[key].score);
-			sentimentContainer = $('<div class="medium-3 cell">');
-			calloutClass = "secondary";
-			if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
-				calloutClass = "success";
-			}else if(this.texts[key].score < 0 && this.texts[key].magnitude > 0){
-				calloutClass = "alert";
-			}
 
-			curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
-				'data-key="' + key + '">')
-				.addClass(calloutClass).html($('<div class="card-info-label">')
-				.append($('<div class="card-info-label-text">').html(this.texts[key].score)))
-				.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))
-			);
-
-			$('#sentiments-eq').append(curSentiment);
+//show historical sentiments in the sentiment div
+WhoUB.prototype.displaySentimentHistory = function(){
+	$('#sentiments-eq').html("");
+	let sentimentContainer, calloutClass, curSentiment;
+	for(key in this.texts.reverse()){
+	console.log(this.texts[key].score);
+		sentimentContainer = $('<div class="medium-3 cell">');
+		calloutClass = "secondary";
+		if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
+			calloutClass = "success";
+		}else if(this.texts[key].score < 0 && this.texts[key].magnitude > 0){
+			calloutClass = "alert";
 		}
-	}
-  //GoogApp method to allow users to sign in
-  WhoUB.prototype.signIn = function(e){
-  		e.preventDefault();
-		var provider = new firebase.auth.GoogleAuthProvider();
-		this.auth.signInWithPopup(provider);    		
-  }
 
-  //GoogApp method to allow users to sign out  
-  WhoUB.prototype.signOut = function(e){
-  	e.preventDefault();
-  	this.auth.signOut();
-  	console.log("signed out");
-  }
+		curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
+			'data-key="' + key + '">')								//Wrap data in a card and add key as attribute
+			.addClass(calloutClass).html($('<div class="card-info-label">')
+			.append($('<div class="card-info-label-text">').html(this.texts[key].score)))	//add score as label
+			.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))//inject text
+		);
+
+		$('#sentiments-eq').append(curSentiment);					//append the card to whats already there
+	}
+}
+
+//GoogApp method to allow users to sign in
+WhoUB.prototype.signIn = function(e){
+		e.preventDefault();
+	var provider = new firebase.auth.GoogleAuthProvider();
+	this.auth.signInWithPopup(provider);    		
+}
+
+//GoogApp method to allow users to sign out  
+WhoUB.prototype.signOut = function(e){
+	e.preventDefault();
+	this.auth.signOut();
+	console.log("signed out");
+}
+
+WhoUB.prototype.showSnipDetails = function(e){
+	console.log(e);
+}
 
 //function to take user input and return their sentiment
 WhoUB.prototype.analyzeText = function(e){
@@ -143,17 +152,12 @@ WhoUB.prototype.analyzeText = function(e){
 
 		//make ajax call and show results to user
 		$.ajax(settings).done(function (response) {
-				// var output = $('<ul>').html($('<li>').html("Score: " + 
-				// response.documentSentiment.score)).append("Sentiment Magnitude: " + 
-				// response.documentSentiment.magnitude);
-				// this.displayTone.html(output);
-
 				let newSnip = new this.Snippet(inputText, response.documentSentiment.score, 
 					response.documentSentiment.magnitude)
-				$('#current-date').html(newSnip.time);
-				$('#current-text').html(newSnip.text);
-				$('#current-score').html(newSnip.score);
-				$('#current-magnitude').html(newSnip.magnitude);
+				this.curDate.html(newSnip.time);
+				this.curText.html(newSnip.text);
+				this.curScore.html(newSnip.score);
+				this.curMagnitude.html(newSnip.magnitude);
 				this.texts.push(newSnip); 				//put user input into texts array
 		//write to firebase
 		let uName = this.userName;
@@ -170,6 +174,5 @@ WhoUB.prototype.analyzeText = function(e){
 }
 
 $(document).ready(function(){
-
-	var x = new WhoUB();	
+	var x = new WhoUB();							//Start the App
 });
