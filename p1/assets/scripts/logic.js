@@ -162,7 +162,7 @@ WhoUB.prototype.analyzeText = function(e){
 		this.database.ref(this.users+this.uid).set({uName, uPic, uTexts});
 		//empty out input box and show new text in container
 		this.inputText.val("");
-		displaySentimentHistory();
+		this.displaySentimentHistory();
 		}.bind(this));	
 
 	}
