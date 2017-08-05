@@ -147,13 +147,14 @@ WhoUB.prototype.analyzeText = function(e){
 				// response.documentSentiment.score)).append("Sentiment Magnitude: " + 
 				// response.documentSentiment.magnitude);
 				// this.displayTone.html(output);
+
+				let newSnip = new this.Snippet(inputText, response.documentSentiment.score, 
+					response.documentSentiment.magnitude)
 				$('#current-date').html(newSnip.time);
 				$('#current-text').html(newSnip.text);
 				$('#current-score').html(newSnip.score);
 				$('#current-magnitude').html(newSnip.magnitude);
-				let newSnip = new this.Snippet(inputText, response.documentSentiment.score, 
-					response.documentSentiment.magnitude)
-		this.texts.push(newSnip); 				//put user input into texts array
+				this.texts.push(newSnip); 				//put user input into texts array
 		//write to firebase
 		let uName = this.userName;
 		let uPic = this.profilePicUrl;
