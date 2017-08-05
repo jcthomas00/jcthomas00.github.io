@@ -133,7 +133,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 					this.modalDate.html(snippetToExpand.time);
 					this.modalScore.html(snippetToExpand.score);
 					this.modalMagnitude.html(snippetToExpand.magnitude);
-					this.modalClose.attr('data-key', curSnippet)
+					$(this.modalClose).attr('data-key', curSnippet)
 					this.modal.foundation('open');
 					console.log(snippetToExpand);
 			}.bind(this)) //Wrap data in a card and add key as attribute
