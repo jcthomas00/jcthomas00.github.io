@@ -23,6 +23,7 @@ function WhoUB(){
 		console.log(key+":"); console.log(this.snipDetails);
 		//this.snipDetails[key].item().addEventListener('click', this.showSnipDetails.bind(this));
 	}
+	$('.card-info').on('click', function(item){console.log(item)});
 	this.displaySentimentHistory.bind(this);
 	this.Snippet = function(text, score = 0, magnitude = 0){		//Object to hold individual user inputs
 		this.text = text;
