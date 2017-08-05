@@ -118,7 +118,7 @@ WhoUB.prototype.closeModal = function(){
 WhoUB.prototype.displaySentimentHistory = function(){
 	$('#sentiments-eq').html("");
 	let sentimentContainer, calloutClass, curSentiment;
-	for(key in this.texts.reverse()){
+	for(key in this.texts){
 		sentimentContainer = $('<div class="medium-3 cell">');
 		calloutClass = "secondary";
 		if(this.texts[key].score >.6 && this.texts[key].magnitude > 1){
@@ -146,7 +146,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 			.append($('<div class="card-info-content">').html('<p>'+this.texts[key].text+'</p>'))//inject text
 		);
 
-		$('#sentiments-eq').append(curSentiment);					//append the card to whats already there
+		$('#sentiments-eq').prepend(curSentiment);					//append the card to whats already there
 	}
 }
 
