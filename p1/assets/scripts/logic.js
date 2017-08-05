@@ -106,7 +106,7 @@ WhoUB.prototype.deleteSentiment = function(e){
 	console.log($(e.target).attr("data-key"));
 	this.texts.splice($(e.target).attr("data-key"), 1);
 	console.log(this.texts);	
-	
+	this.displaySentimentHistory();	
 	this.modal.foundation('close');
 }
 
