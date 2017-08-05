@@ -123,7 +123,8 @@ function WhoUB(){
   }
 
 //function to take user input and return their sentiment
-WhoUB.prototype.analyzeText = function(){
+WhoUB.prototype.analyzeText = function(e){
+	e.preventDefault();
 	var inputText = this.inputText.val().trim();
 	if (inputText != "") {									//make sure user typed something
 		var settings = {									//settings to make a CORS call to NLP
