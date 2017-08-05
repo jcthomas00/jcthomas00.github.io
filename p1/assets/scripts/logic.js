@@ -42,7 +42,7 @@ function WhoUB() {
 		this.score = score;
 		this.magnitude = magnitude;
 	}
-	this.texts = []; //holds all user input
+	this.texts = []; 				//holds all user input
 	//current user info
 	this.uid = null, this.profilePicUrl = "", this.userName = "";
 
@@ -60,17 +60,17 @@ function WhoUB() {
 	this.storage = firebase.storage();
 	this.auth = firebase.auth();
 	this.database = firebase.database();
-	this.users = 'users/'; //location of all users
-	this.snippets = 'snippets/'; //location of all analyzed text
+	this.users = 'users/'; 			//location of all users
+	this.snippets = 'snippets/'; 	//location of all analyzed text
 	this.loginDiv.hide();
 	this.profileDiv.hide();
 
 	//called when someone logs in or out
 	this.onAuthStateChanged = function(user) {
-		if (user) { // User is signed in!
-			this.loginDiv.hide(); // hide login button
+		if (user) { 				// User is signed in!
+			this.loginDiv.hide(); 	// hide login button
 			this.profileDiv.show();
-			this.uid = user.uid; // get user info from google auth
+			this.uid = user.uid; 	// get user info from google auth
 			this.profilePicUrl = user.photoURL;
 			this.userName = user.displayName;
 
@@ -80,14 +80,15 @@ function WhoUB() {
 					if (snapshot.val() == null) { //User not in DB so add them
 						console.log("account doesn't exist");
 						//write to firebase
-						let uName = this.userName; //new vars b/c set doesn't like dots
-						let uPic = this.profilePicUrl;
-						let uTexts = this.texts;
-						this.database.ref(this.users + this.uid).set({
-							uName,
-							uPic,
-							uTexts
-						});
+						this.pushToFirebase();
+						// let uName = this.userName; //new vars b/c set doesn't like dots
+						// let uPic = this.profilePicUrl;
+						// let uTexts = this.texts;
+						// this.database.ref(this.users + this.uid).set({
+						// 	uName,
+						// 	uPic,
+						// 	uTexts
+						// });
 						//write user info into firebase
 					} else { //user exists, get their info    		
 						console.log(snapshot.val().uName + " is in our Database");
@@ -250,17 +251,18 @@ WhoUB.prototype.analyzeText = function(e) {
 			this.curMagnitude.html(newSnip.magnitude);
 			this.texts.push(newSnip); //put user input into texts array
 			//write to firebase
-			let uName = this.userName;
-			let uPic = this.profilePicUrl;
-			let uTexts = this.texts;
-			this.database.ref(this.users + this.uid).set({
-				uName,
-				uPic,
-				uTexts
-			});
-			//empty out input box and show new text in container
+			this.pushToFirebase();
+			// let uName = this.userName;
+			// let uPic = this.profilePicUrl;
+			// let uTexts = this.texts;
+			// this.database.ref(this.users + this.uid).set({
+			// 	uName,
+			// 	uPic,
+			// 	uTexts
+			// });
+			// //empty out input box and show new text in container
+			// this.displaySentimentHistory();
 			this.inputText.val("");
-			this.displaySentimentHistory();
 		}.bind(this));
 	}
 }
@@ -270,11 +272,7 @@ WhoUB.prototype.pushToFirebase = function() {
 	let uName = this.userName;
 	let uPic = this.profilePicUrl;
 	let uTexts = this.texts;
-	this.database.ref(this.users + this.uid).set({
-		uName,
-		uPic,
-		uTexts
-	});
+	this.database.ref(this.users + this.uid).set({uName, uPic, uTexts});
 	this.displaySentimentHistory();
 }
 
