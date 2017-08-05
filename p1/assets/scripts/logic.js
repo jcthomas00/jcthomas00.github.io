@@ -112,7 +112,7 @@ WhoUB.prototype.displaySentimentHistory = function(){
 					$('#modal-date').html(snippetToExpand.time);
 					$('#modal-score').html(snippetToExpand.score);
 					$('#modal-magnitude').html(snippetToExpand.magnitude);
-					$('#sentimentModal').foundation('reveal', 'open');
+					$('#sentimentModal').foundation('open');
 					console.log(snippetToExpand);
 			}.bind(this)) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
