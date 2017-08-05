@@ -19,7 +19,7 @@ function WhoUB(){
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
 	this.signOutButton.addEventListener('click', this.signOut.bind(this));
 	this.sendText.addEventListener('click', this.analyzeText.bind(this));
-	for (key in this.snipDetails){
+	for (var i=0; i< this.snipDetails.length; i++){
 		console.log(key+":"); console.log(this.snipDetails);
 		//this.snipDetails[key].item().addEventListener('click', this.showSnipDetails.bind(this));
 	}
