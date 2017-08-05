@@ -107,8 +107,12 @@ WhoUB.prototype.displaySentimentHistory = function(){
 
 		curSentiment = sentimentContainer.html($('<div class="card-info" data-equalizer-watch '+
 			'data-key="' + key + '">').click(function(e){
-					let snippetIndex = $(e.currentTarget).attr("data-key");
-					let snippetToExpand = this.texts[snippetIndex];
+					let snippetToExpand = this.texts[$(e.currentTarget).attr("data-key")];
+					$('#modal-text').html(snippetToExpand.text);
+					$('#modal-date').html(snippetToExpand.time);
+					$('#modal-score').html(snippetToExpand.score);
+					$('#modal-magnitude').html(snippetToExpand.magnitude);
+					$('#sentimentModal').foundation('reveal', 'open');
 					console.log(snippetToExpand);
 			}.bind(this)) //Wrap data in a card and add key as attribute
 			.addClass(calloutClass).html($('<div class="card-info-label">')
