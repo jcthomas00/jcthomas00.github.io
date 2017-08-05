@@ -32,7 +32,7 @@ h1{
   margin: 1rem 0;
   overflow: hidden;
   border-radius: 0;
- 	max-height: 250px;
+ 	height: 250px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
