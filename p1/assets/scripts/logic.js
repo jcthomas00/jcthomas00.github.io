@@ -16,7 +16,7 @@
 	"Emotional Range" : {
 		"Anger" : 
 			["It takes a lot to get you angry.", "You have a fiery temper, especially when things do not go your way."],
-		"Anxiety" : 
+		"Prone to worry" : 
 			["You tend to feel calm and self-assured.", "You tend to worry about things that might happen."],
 		"Depression" : 
 			["You are generally comfortable with yourself as you are.", "You think quite often about the things you are unhappy about."],
