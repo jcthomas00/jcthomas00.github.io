@@ -323,8 +323,8 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 				}else {
 					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][0];
 				}
-				bio += "<br>";
 			}
+			bio += "<br>";
 		}
 		this.profileText.html(bio);
 		
