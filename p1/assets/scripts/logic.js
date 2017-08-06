@@ -13,7 +13,7 @@
 		"Authority-challenging" : 
 			["You prefer following with tradition to maintain a sense of stability.", "You prefer to challenge authority and traditional values to effect change."]
 		},
-	"Emotional Range" : {
+	"Emotional range" : {
 		"Fiery" : 
 			["It takes a lot to get you angry.", "You have a fiery temper, especially when things do not go your way."],
 		"Prone to worry" : 
