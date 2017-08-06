@@ -321,8 +321,8 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			for(facetIndex in (facet = res.personality[personalityIndex].children)){
 				curFacet = facet[facetIndex].name;
 				if (facet[facetIndex].raw_score > .5) {
-					console.log("index: "+personalityIndex+"facet: "); console.log(facet);
-					bio += PERSONALITY_GRID.aPersonality.curFacet[1];
+					console.log("index: "+aPersonality+" facet: "); console.log(facet);
+					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][1];
 				}else {
 					bio += PERSONALITY_GRID.aPersonality.curFacet[0];
 				}
@@ -392,7 +392,6 @@ WhoUB.prototype.pushToFirebase = function() {
 
 $(document).ready(function() {
 	var x = new WhoUB();
-	x.analyzezPersonality();
 
 	$('#profile-image').click(() => {
 		x.analyzezPersonality();
