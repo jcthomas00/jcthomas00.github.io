@@ -66,14 +66,14 @@
 	this.users = 'users/'; 			//location of all users
 	this.snippets = 'snippets/'; 	//location of all analyzed text
 	this.loginDiv.hide();
-	this.signOutButton.hide();
+	$(this.signOutButton).hide();
 	this.profileDiv.hide();
 
 	//called when someone logs in or out
 	this.onAuthStateChanged = function(user) {
 		if (user) { 				// User is signed in!
 			this.loginDiv.hide(); 	// hide login button
-			this.profileDiv.show(); this.signOutButton.show();
+			this.profileDiv.show(); $(this.signOutButton).show();
 			this.uid = user.uid; 	// get user info from google auth
 			this.profilePicUrl = user.photoURL;
 			this.userName = user.displayName;
@@ -98,7 +98,7 @@
 				}.bind(this));
 		} else { //user logged out - hide profile info and show login
 			console.log("logged out");
-			this.profileDiv.hide(); this.signOutButton.hide();
+			this.profileDiv.hide(); $(this.signOutButton).hide();
 			this.loginDiv.show();
 		}
 	}
