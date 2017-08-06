@@ -63,7 +63,7 @@
 			["You do not shy away from contradicting others.", "You are easy to please and try to avoid confrontation."],
 		"Modesty" : 
 			["You hold yourself in high regard and are satisfied with who you are.", "You are uncomfortable being the center of attention."],
-		"Morality" : 
+		"Uncompromising" : 
 			["You are comfortable using every trick in the book to get what you want.", "You think it is wrong to take advantage of others to get ahead."],
 		"Sympathy" : 
 			["You think people should generally rely more on themselves than on others.", "You feel what others feel and are compassionate toward them."],
