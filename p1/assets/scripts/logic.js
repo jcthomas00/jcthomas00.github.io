@@ -253,6 +253,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 //function to take user input and return their sentiment
 WhoUB.prototype.analyzeText = function(e) {
 	e.preventDefault();
+	console.log("Analyzing text");
 	var inputText = this.inputText.val().trim();
 	if (!inputText) { //make sure user typed something
 		var settings = { //settings to make a CORS call to NLP
