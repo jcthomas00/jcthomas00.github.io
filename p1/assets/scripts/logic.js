@@ -45,7 +45,7 @@
 			["You have a strong desire to have time to yourself.", "You enjoy being in the company of others."]
 		},
 	"Conscientiousness" : {
-		"Achievement-striving" : 
+		"Achievement striving" : 
 			["You are content with your level of accomplishment and do not feel the need to set ambitious goals.", "You set high goals for yourself and work hard to achieve them."],
 		"Cautiousness" : 
 			["You would rather take action immediately than spend time deliberating making a decision.", "You carefully think through decisions before making them."],
