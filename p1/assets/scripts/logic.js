@@ -224,7 +224,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			loop = res.values.length;
 		}
 		for (var i = 0; i < loop; i++) {
-			tempHolder += $("<li>").html(res.values[i]);
+			tempHolder += $("<li>").html(res.values[i].name);
 		}
 		this.userValues.html(tempHolder);
 
@@ -233,20 +233,20 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			loop = res.needs.length;
 		}
 		for (var i = 0; i < loop; i++) {
-			tempHolder += $("<li>").html(res.needs[i]);
+			tempHolder += $("<li>").html(res.needs[i].name);
 		}
 		this.userNeeds.html(tempHolder);
 
-		for (var i = 0; i < res.personality.length; i++) {
-			var personality = res.personality[i];
-			var personalityInfo = $("<div>");
+		// for (var i = 0; i < res.personality.length; i++) {
+		// 	var personality = res.personality[i];
+		// 	var personalityInfo = $("<div>");
 
-			//add children to div 
-			var personalityName = $("<p>").html(personality.name);
-			var personalityPercentile = $("<p>").html(personality.percentile);
+		// 	//add children to div 
+		// 	var personalityName = $("<p>").html(personality.name);
+		// 	var personalityPercentile = $("<p>").html(personality.percentile);
 
-			personalityDiv.append(personalityName, personalityPercentile);
-		}
+		// 	personalityDiv.append(personalityName, personalityPercentile);
+		// }
 	});
 }
 
