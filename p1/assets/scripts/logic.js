@@ -309,7 +309,7 @@ $(document).ready(function() {
 	var x = new WhoUB();
 	x.analyzezPersonality();
 
-	$(document).click(() => {
+	$('#profile-image').click(() => {
 		x.analyzezPersonality();
 	});
 });
