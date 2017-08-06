@@ -14,11 +14,11 @@
 			["You prefer following with tradition to maintain a sense of stability.", "You prefer to challenge authority and traditional values to effect change."]
 		},
 	"Emotional Range" : {
-		"Anger" : 
+		"Fiery" : 
 			["It takes a lot to get you angry.", "You have a fiery temper, especially when things do not go your way."],
 		"Prone to worry" : 
 			["You tend to feel calm and self-assured.", "You tend to worry about things that might happen."],
-		"Depression" : 
+		"Melancholy" : 
 			["You are generally comfortable with yourself as you are.", "You think quite often about the things you are unhappy about."],
 		"Immoderation" : 
 			["You have control over your desires, which are not particularly intense.", "You feel your desires strongly and are easily tempted by them."],
