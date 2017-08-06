@@ -1,4 +1,78 @@
-﻿
+﻿const PERSONALITY_GRID = {
+	"Openness" : {
+		"Adventurousness" : 
+			["You enjoy familiar routines and prefer not to deviate from them.", "You are eager to experience new things."],
+		"Artistic interests" : 
+			["You are less concerned with artistic or creative activities than most people.", "You enjoy beauty and seek out creative experiences."],
+		"Emotionality" : 
+			["You do not frequently think about or openly express your emotions.", "You are aware of your feelings and how to express them."],
+		"Imagination" : 
+			["You prefer facts over fantasy.", "You have a wild imagination."],
+		"Intellect" : 
+			["You prefer dealing with the world as it is, rarely considering abstract ideas.", "You are open to and intrigued by new ideas and love to explore them."],
+		"Liberalism" : 
+			["You prefer following with tradition to maintain a sense of stability.", "You prefer to challenge authority and traditional values to effect change."]
+		},
+	"Emotional Range" : {
+		"Anger" : 
+			["It takes a lot to get you angry.", "You have a fiery temper, especially when things do not go your way."],
+		"Anxiety" : 
+			["You tend to feel calm and self-assured.", "You tend to worry about things that might happen."],
+		"Depression" : 
+			["You are generally comfortable with yourself as you are.", "You think quite often about the things you are unhappy about."],
+		"Immoderation" : 
+			["You have control over your desires, which are not particularly intense.", "You feel your desires strongly and are easily tempted by them."],
+		"Self-consciousness" : 
+			["You are hard to embarrass and are self-confident most of the time.", "You are sensitive about what others might be thinking of you."],
+		"Vulnerability" : 
+			["You handle unexpected events calmly and effectively.", "You are easily overwhelmed in stressful situations"]
+		},
+	"Extraversion" : {
+		"Activity level" : 
+			["You appreciate a relaxed pace in life.", "You enjoy a fast-paced, busy schedule with many activities."],
+		"Assertiveness" : 
+			["You prefer to listen than to talk, especially in group situations.", "You tend to speak up and take charge of situations, and you are comfortable leading groups."],
+		"Cheerfulness" : 
+			["You are generally serious and do not joke much.", "You are a joyful person and share that joy with the world."],
+			
+		"Excitement-seeking" : 
+			["You prefer activities that are quiet, calm, and safe.", "You are excited by taking risks and feel bored without lots of action going on."],
+			
+		"Friendliness" : 
+			["You are a private person and do not let many people in.", "You make friends easily and feel comfortable around other people."],
+			
+		"Gregariousness" : 
+			["You have a strong desire to have time to yourself.", "You enjoy being in the company of others."]
+		},
+	"Conscientiousness" : {
+		"Achievement-striving" : 
+			["You are content with your level of accomplishment and do not feel the need to set ambitious goals.", "You set high goals for yourself and work hard to achieve them."],
+		"Cautiousness" : 
+			["You would rather take action immediately than spend time deliberating making a decision.", "You carefully think through decisions before making them."],
+		"Dutifulness" : 
+			["You do what you want, disregarding rules and obligations.", "You take rules and obligations seriously, even when they are inconvenient."],
+		"Orderliness" : 
+			["You do not make a lot of time for organization in your daily life.", "You feel a strong need for structure in your life."],
+		"Self-discipline" : 
+			["You have a hard time sticking with difficult tasks for a long period of time.", "You can tackle and stick with tough tasks."],
+		"Self-efficacy" : 
+			["You frequently doubt your ability to achieve your goals.", "You feel you have the ability to succeed in the tasks you set out to do."]
+		},
+	"Agreeableness" : {
+		"Altruism" : 
+			["You are more concerned with taking care of yourself than taking time for others.", "You feel fulfilled when helping others and will go out of your way to do so."],
+		"Cooperation" : 
+			["You do not shy away from contradicting others.", "You are easy to please and try to avoid confrontation."],
+		"Modesty" : 
+			["You hold yourself in high regard and are satisfied with who you are.", "You are uncomfortable being the center of attention."],
+		"Morality" : 
+			["You are comfortable using every trick in the book to get what you want.", "You think it is wrong to take advantage of others to get ahead."],
+		"Sympathy" : 
+			["You think people should generally rely more on themselves than on others.", "You feel what others feel and are compassionate toward them."],
+		"Trust" : 
+			["You are wary of other people's intentions and do not trust easily.", "You believe the best in others and trust people easily."]
+		},
+};
 function WhoUB() {
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
@@ -253,6 +327,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			}
 		}
 		this.profileText.html(bio);
+		console.log(facet);
 
 		// for (var i = 0; i < res.personality.length; i++) {
 		// 	var personality = res.personality[i];
@@ -323,78 +398,3 @@ $(document).ready(function() {
 });
 
 
-const PERSONALITY_GRID = {
-	"Openness" : {
-		"Adventurousness" : 
-			["You enjoy familiar routines and prefer not to deviate from them.", "You are eager to experience new things."],
-		"Artistic interests" : 
-			["You are less concerned with artistic or creative activities than most people.", "You enjoy beauty and seek out creative experiences."],
-		"Emotionality" : 
-			["You do not frequently think about or openly express your emotions.", "You are aware of your feelings and how to express them."],
-		"Imagination" : 
-			["You prefer facts over fantasy.", "You have a wild imagination."],
-		"Intellect" : 
-			["You prefer dealing with the world as it is, rarely considering abstract ideas.", "You are open to and intrigued by new ideas and love to explore them."],
-		"Liberalism" : 
-			["You prefer following with tradition to maintain a sense of stability.", "You prefer to challenge authority and traditional values to effect change."]
-		},
-	"Emotional Range" : {
-		"Anger" : 
-			["It takes a lot to get you angry.", "You have a fiery temper, especially when things do not go your way."],
-		"Anxiety" : 
-			["You tend to feel calm and self-assured.", "You tend to worry about things that might happen."],
-		"Depression" : 
-			["You are generally comfortable with yourself as you are.", "You think quite often about the things you are unhappy about."],
-		"Immoderation" : 
-			["You have control over your desires, which are not particularly intense.", "You feel your desires strongly and are easily tempted by them."],
-		"Self-consciousness" : 
-			["You are hard to embarrass and are self-confident most of the time.", "You are sensitive about what others might be thinking of you."],
-		"Vulnerability" : 
-			["You handle unexpected events calmly and effectively.", "You are easily overwhelmed in stressful situations"]
-		},
-	"Extraversion" : {
-		"Activity level" : 
-			["You appreciate a relaxed pace in life.", "You enjoy a fast-paced, busy schedule with many activities."],
-		"Assertiveness" : 
-			["You prefer to listen than to talk, especially in group situations.", "You tend to speak up and take charge of situations, and you are comfortable leading groups."],
-		"Cheerfulness" : 
-			["You are generally serious and do not joke much.", "You are a joyful person and share that joy with the world."],
-			
-		"Excitement-seeking" : 
-			["You prefer activities that are quiet, calm, and safe.", "You are excited by taking risks and feel bored without lots of action going on."],
-			
-		"Friendliness" : 
-			["You are a private person and do not let many people in.", "You make friends easily and feel comfortable around other people."],
-			
-		"Gregariousness" : 
-			["You have a strong desire to have time to yourself.", "You enjoy being in the company of others."]
-		},
-	"Conscientiousness" : {
-		"Achievement-striving" : 
-			["You are content with your level of accomplishment and do not feel the need to set ambitious goals.", "You set high goals for yourself and work hard to achieve them."],
-		"Cautiousness" : 
-			["You would rather take action immediately than spend time deliberating making a decision.", "You carefully think through decisions before making them."],
-		"Dutifulness" : 
-			["You do what you want, disregarding rules and obligations.", "You take rules and obligations seriously, even when they are inconvenient."],
-		"Orderliness" : 
-			["You do not make a lot of time for organization in your daily life.", "You feel a strong need for structure in your life."],
-		"Self-discipline" : 
-			["You have a hard time sticking with difficult tasks for a long period of time.", "You can tackle and stick with tough tasks."],
-		"Self-efficacy" : 
-			["You frequently doubt your ability to achieve your goals.", "You feel you have the ability to succeed in the tasks you set out to do."]
-		},
-	"Agreeableness" : {
-		"Altruism" : 
-			["You are more concerned with taking care of yourself than taking time for others.", "You feel fulfilled when helping others and will go out of your way to do so."],
-		"Cooperation" : 
-			["You do not shy away from contradicting others.", "You are easy to please and try to avoid confrontation."],
-		"Modesty" : 
-			["You hold yourself in high regard and are satisfied with who you are.", "You are uncomfortable being the center of attention."],
-		"Morality" : 
-			["You are comfortable using every trick in the book to get what you want.", "You think it is wrong to take advantage of others to get ahead."],
-		"Sympathy" : 
-			["You think people should generally rely more on themselves than on others.", "You feel what others feel and are compassionate toward them."],
-		"Trust" : 
-			["You are wary of other people's intentions and do not trust easily.", "You believe the best in others and trust people easily."]
-		},
-};
