@@ -600,11 +600,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffb76b', e
   width: 100%;
   font-size: 1.875rem;
   position: absolute;
+  top: 1%;
 }
 
 @media print, screen and (min-width: 40em) {
   .bar-graph .percent {
-    font-size: 3.875rem;
+    font-size: 2rem;
   }
 }
 
