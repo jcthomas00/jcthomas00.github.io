@@ -320,6 +320,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			aPersonality = res.personality[personalityIndex].name;
 			for(facetIndex in (facet = res.personality[personalityIndex].children)){
 				if (facet[facetIndex].raw_score > .5) {
+					console.log("index: "+personalityIndex+"facet: "); console.log(facet);
 					bio += PERSONALITY_GRID.aPersonality.facet[facetIndex].name[1];
 				}else {
 					bio += PERSONALITY_GRID.aPersonality.facet[facetIndex].name[0];
@@ -327,7 +328,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			}
 		}
 		this.profileText.html(bio);
-		console.log(facet);
+		
 
 		// for (var i = 0; i < res.personality.length; i++) {
 		// 	var personality = res.personality[i];
