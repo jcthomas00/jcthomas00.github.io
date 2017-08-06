@@ -25,7 +25,8 @@
 	this.profileName = $('#profile-username');
 	this.profileTrait = $('#profile-trait');
 	this.profileText = $('#profile-text');
-
+	this.userNeeds = $('#user-needs');
+	this.userValues = $('#user-values');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -183,7 +184,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 	//should use a modal on this
 	var minimumLength = 600;
 	if (combinedText.length < minimumLength) {
-		alert("You need more text to get an accurate read on your personality");
+		alert("Please add more text to get an accurate read on your personality");
 		return;
 	}
 
@@ -217,6 +218,24 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		$('#e-percent').html(ePercent);
 		$('#a-percent').html(aPercent);
 		$('#em-percent').html(emPercent);
+
+		var loop = 5, tempHolder="", listItem="";
+		if (res.values.length < loop){
+			loop = res.values.length;
+		}
+		for (var i = 0; i < loop; i++) {
+			tempHolder += $("<li>").html(res.values[i]);
+		}
+		this.userValues.html(tempHolder);
+
+		loop = 5; tempHolder=""; listItem="";
+		if (res.needs.length < loop){
+			loop = res.needs.length;
+		}
+		for (var i = 0; i < loop; i++) {
+			tempHolder += $("<li>").html(res.needs[i]);
+		}
+		this.userNeeds.html(tempHolder);
 
 		for (var i = 0; i < res.personality.length; i++) {
 			var personality = res.personality[i];
