@@ -1,7 +1,9 @@
 ﻿body {
   background-image: url(../img/sayagata-400px.png) !important;
 }
-
+#logged-out-stuff {
+  background-color: whitesmoke;
+}
 section .callout{
 	border: none;
 	margin: 0;
