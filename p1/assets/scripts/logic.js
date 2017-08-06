@@ -324,7 +324,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 					console.log("index: "+aPersonality+" facet: "); console.log(facet);
 					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][1];
 				}else {
-					bio += PERSONALITY_GRID.aPersonality.curFacet[0];
+					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][0];
 				}
 			}
 		}
