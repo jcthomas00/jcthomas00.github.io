@@ -1,6 +1,11 @@
-﻿section .callout{
+﻿body {
+  background-image: url(../img/sayagata-400px.png) !important;
+}
+
+section .callout{
 	border: none;
 	margin: 0;
+  rgba(255,255,255,.4)
 }
 #sentiments-eq .cell .callout{
 	max-height: 300px;
@@ -15,6 +20,14 @@
 #second .callout blockquote, #second .callout cite {
 	color: whitesmoke;
 
+}
+
+.user-submit-box {
+  border-color: white !important;
+}
+
+#input-text {
+  border: 1px solid #ccc;
 }
 
 h1{
@@ -749,6 +762,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffb76b', e
 
 .profile-card-action-icons .card-section .profile-card-about .about-skills {
   margin-top: 0.6rem;
+  margin-left: 0.3rem;
 }
 
 .profile-card-action-icons .card-section .profile-card-about .about-skills ul.arrow {

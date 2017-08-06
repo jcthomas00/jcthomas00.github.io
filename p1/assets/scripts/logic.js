@@ -1,6 +1,4 @@
-﻿var tempOutput;
-
-function WhoUB() {
+﻿function WhoUB() {
 	//get DOM elements
 	this.sendText = document.getElementById('send-text');
 	this.signInButton = document.getElementById('login-button');
@@ -23,6 +21,11 @@ function WhoUB() {
 	this.modalDate = $('#modal-date');
 	this.modalScore = $('#modal-score');
 	this.modalMagnitude = $('#modal-magnitude');
+	this.profileImage =  $('profile-image');
+	this.profileName = $('profile-username');
+	this.profileTrait = $('profile-trait');
+	this.profileText = $('profile-text');
+
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -32,7 +35,7 @@ function WhoUB() {
 	this.modalDelete.addEventListener('click', this.deleteSentiment.bind(this));
 
 	$('.card-info').on('click', function(item) {
-		console.log(item)
+		console.log(item);
 	});
 	this.displaySentimentHistory.bind(this);
 	this.pushToFirebase.bind(this);
@@ -42,7 +45,7 @@ function WhoUB() {
 		this.score = score;
 		this.magnitude = magnitude;
 	}
-	this.texts = []; 				//holds all user input
+	this.texts = []; 				//holds all user texts
 	//current user info
 	this.uid = null, this.profilePicUrl = "", this.userName = "";
 
@@ -73,6 +76,9 @@ function WhoUB() {
 			this.uid = user.uid; 	// get user info from google auth
 			this.profilePicUrl = user.photoURL;
 			this.userName = user.displayName;
+			this.profileName = user.displayName;
+			this.profileImage.attr("src", user.profilePicUrl)
+
 
 			//look for the user based on UID
 			this.database.ref(this.users + this.uid).once('value') //check if we have their data
@@ -81,14 +87,6 @@ function WhoUB() {
 						console.log("account doesn't exist");
 						//write to firebase
 						this.pushToFirebase();
-						// let uName = this.userName; //new vars b/c set doesn't like dots
-						// let uPic = this.profilePicUrl;
-						// let uTexts = this.texts;
-						// this.database.ref(this.users + this.uid).set({
-						// 	uName,
-						// 	uPic,
-						// 	uTexts
-						// });
 						//write user info into firebase
 					} else { //user exists, get their info    		
 						console.log(snapshot.val().uName + " is in our Database");
@@ -183,16 +181,13 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 	}
 
 	//calculate if the text is over the amount;
-	// var minimumLength = 600;
-	// if (combinedText.length > minimumLength) {
-	// 	alert("You need more text to get an accurate read on your personality");
-	// 	return;
-	// }
+	//should use a modal on this
+	var minimumLength = 600;
+	if (combinedText.length < minimumLength) {
+		alert("You need more text to get an accurate read on your personality");
+		return;
+	}
 
-	if (!combinedText) return;
-
-	console.log("Waiting for response");
-	
 	$.ajax({
 		url: 'https://watson-easy.herokuapp.com/profile',
 		type: 'POST',
@@ -205,6 +200,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		console.log(res);
 		console.log("personality: ");
 		console.log(res.personality);
+
 		var personalityDiv = $("#personality");
 		let oPercent = Math.floor(res.personality[0].percentile*100);
 		let cPercent = Math.floor(res.personality[1].percentile*100);
@@ -227,7 +223,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			var personality = res.personality[i];
 			var personalityInfo = $("<div>");
 
-			//add children to div later
+			//add children to div 
 			var personalityName = $("<p>").html(personality.name);
 			var personalityPercentile = $("<p>").html(personality.percentile);
 
@@ -240,7 +236,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 WhoUB.prototype.analyzeText = function(e) {
 	e.preventDefault();
 	var inputText = this.inputText.val().trim();
-	if (inputText != "") { //make sure user typed something
+	if (!inputText) { //make sure user typed something
 		var settings = { //settings to make a CORS call to NLP
 			"async": true,
 			"crossDomain": true,
