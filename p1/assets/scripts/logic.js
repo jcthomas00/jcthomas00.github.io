@@ -93,8 +93,8 @@
 							this.displaySentimentHistory();
 						}
 						this.userWelcome.html(this.userName);
-						this.profileName.html(user.displayName);
-						this.profileImage.attr("src", user.profilePicUrl);					}
+						this.profileName.html(this.userName);
+						this.profileImage.attr("src", this.profilePicUrl);					}
 				}.bind(this));
 		} else { //user logged out - hide profile info and show login
 			console.log("logged out");

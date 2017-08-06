@@ -624,6 +624,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffb76b', e
 
 .bar-graph .percent span {
   font-size: 1.875rem;
+  color: ghostwhite;
 }
 
 .bar-graph .description {
