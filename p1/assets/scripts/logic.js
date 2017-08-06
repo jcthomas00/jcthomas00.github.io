@@ -219,23 +219,23 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		$('#a-percent').html(aPercent);
 		$('#em-percent').html(emPercent);
 
-		var loop = 5, tempHolder="", listItem="";
+		var loop = 5;
 		if (res.values.length < loop){
 			loop = res.values.length;
 		}
+		this.userValues.html("");
 		for (var i = 0; i < loop; i++) {
-			tempHolder += $("<li>").html(res.values[i].name);
+			this.userValues.append($("<li>").html(res.values[i].name));
 		}
-		this.userValues.html(tempHolder);
 
-		loop = 5; tempHolder=""; listItem="";
+		loop = 5;
+		this.userNeeds.html("");
 		if (res.needs.length < loop){
 			loop = res.needs.length;
 		}
 		for (var i = 0; i < loop; i++) {
-			tempHolder += $("<li>").html(res.needs[i].name);
+			this.userNeeds.append($("<li>").html(res.needs[i].name));
 		}
-		this.userNeeds.html(tempHolder);
 
 		// for (var i = 0; i < res.personality.length; i++) {
 		// 	var personality = res.personality[i];
