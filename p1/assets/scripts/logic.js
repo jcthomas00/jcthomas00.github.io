@@ -315,15 +315,16 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		}
 
 		//Display peronality Bio
-		let aPersonality, aFacet, bio="";
+		let aPersonality, aFacet, bio="", curFacet;
 		for(personalityIndex in res.personality) {
 			aPersonality = res.personality[personalityIndex].name;
 			for(facetIndex in (facet = res.personality[personalityIndex].children)){
+				curFacet = facet[facetIndex].name;
 				if (facet[facetIndex].raw_score > .5) {
 					console.log("index: "+personalityIndex+"facet: "); console.log(facet);
-					bio += PERSONALITY_GRID.aPersonality.facet[facetIndex].name[1];
+					bio += PERSONALITY_GRID.aPersonality.curFacet[1];
 				}else {
-					bio += PERSONALITY_GRID.aPersonality.facet[facetIndex].name[0];
+					bio += PERSONALITY_GRID.aPersonality.curFacet[0];
 				}
 			}
 		}
