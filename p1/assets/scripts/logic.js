@@ -10,7 +10,7 @@
 			["You prefer facts over fantasy.", "You have a wild imagination."],
 		"Intellect" : 
 			["You prefer dealing with the world as it is, rarely considering abstract ideas.", "You are open to and intrigued by new ideas and love to explore them."],
-		"Liberalism" : 
+		"Authority-challenging" : 
 			["You prefer following with tradition to maintain a sense of stability.", "You prefer to challenge authority and traditional values to effect change."]
 		},
 	"Emotional Range" : {
