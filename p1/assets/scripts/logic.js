@@ -24,7 +24,7 @@
 			["You have control over your desires, which are not particularly intense.", "You feel your desires strongly and are easily tempted by them."],
 		"Self-consciousness" : 
 			["You are hard to embarrass and are self-confident most of the time.", "You are sensitive about what others might be thinking of you."],
-		"Vulnerability" : 
+		"Susceptible to stress" : 
 			["You handle unexpected events calmly and effectively.", "You are easily overwhelmed in stressful situations"]
 		},
 	"Extraversion" : {
@@ -38,7 +38,6 @@
 			["You prefer activities that are quiet, calm, and safe.", "You are excited by taking risks and feel bored without lots of action going on."],
 		"Outgoing" : 
 			["You are a private person and do not let many people in.", "You make friends easily and feel comfortable around other people."],
-			
 		"Gregariousness" : 
 			["You have a strong desire to have time to yourself.", "You enjoy being in the company of others."]
 		},
