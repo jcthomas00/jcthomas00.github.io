@@ -488,6 +488,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40ffb76b', e
   }
 }
 
+.travel-feature-text {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .travel-feature-card-price {
   text-align: right;
 }
