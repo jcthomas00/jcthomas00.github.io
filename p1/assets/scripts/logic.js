@@ -34,11 +34,9 @@
 			["You prefer to listen than to talk, especially in group situations.", "You tend to speak up and take charge of situations, and you are comfortable leading groups."],
 		"Cheerfulness" : 
 			["You are generally serious and do not joke much.", "You are a joyful person and share that joy with the world."],
-			
 		"Excitement-seeking" : 
 			["You prefer activities that are quiet, calm, and safe.", "You are excited by taking risks and feel bored without lots of action going on."],
-			
-		"Friendliness" : 
+		"Outgoing" : 
 			["You are a private person and do not let many people in.", "You make friends easily and feel comfortable around other people."],
 			
 		"Gregariousness" : 
