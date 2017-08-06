@@ -21,10 +21,10 @@
 	this.modalDate = $('#modal-date');
 	this.modalScore = $('#modal-score');
 	this.modalMagnitude = $('#modal-magnitude');
-	this.profileImage =  $('profile-image');
-	this.profileName = $('profile-username');
-	this.profileTrait = $('profile-trait');
-	this.profileText = $('profile-text');
+	this.profileImage =  $('#profile-image');
+	this.profileName = $('#profile-username');
+	this.profileTrait = $('#profile-trait');
+	this.profileText = $('#profile-text');
 
 
 	//add event listeners to DOM elements and bind them to the object's namespace
@@ -76,9 +76,6 @@
 			this.uid = user.uid; 	// get user info from google auth
 			this.profilePicUrl = user.photoURL;
 			this.userName = user.displayName;
-			this.profileName = user.displayName;
-			this.profileImage.attr("src", user.profilePicUrl)
-
 
 			//look for the user based on UID
 			this.database.ref(this.users + this.uid).once('value') //check if we have their data
@@ -95,7 +92,8 @@
 							this.displaySentimentHistory();
 						}
 						this.userWelcome.html(this.userName);
-					}
+						this.profileName.html(user.displayName);
+						this.profileImage.attr("src", user.profilePicUrl);					}
 				}.bind(this));
 		} else { //user logged out - hide profile info and show login
 			console.log("logged out");
