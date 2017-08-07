@@ -377,6 +377,7 @@ WhoUB.prototype.pushToFirebase = function() {
 	let uTexts = this.texts;
 	this.database.ref(this.users + this.uid).set({uName, uPic, uTexts});
 	this.displaySentimentHistory();
+	this.analyzezPersonality();
 }
 
 $(document).ready(function() {
