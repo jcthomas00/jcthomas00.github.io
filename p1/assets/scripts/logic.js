@@ -100,6 +100,7 @@ function WhoUB() {
 	this.userNeeds = $('#user-needs');
 	this.userValues = $('#user-values');
 	this.wordModal = $('#wordWarningModal');
+	this.wordWarning = $('#wordWarningAlert);
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -141,6 +142,7 @@ function WhoUB() {
 	this.snippets = 'snippets/'; 	//location of all analyzed text
 	this.loginDiv.hide();
 	$(this.signOutButton).hide();
+	this.wordWarning.hide();
 	this.profileDiv.hide();
 
 	//called when someone logs in or out
@@ -259,7 +261,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 	//should use a modal on this
 	var minimumLength = 600;
 	if (combinedText.length < minimumLength) {
-		alert("Please add more text to get an accurate read on your personality");
+		this.wordWarning.show();
 		return;
 	}
 
