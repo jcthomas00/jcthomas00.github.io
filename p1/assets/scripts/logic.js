@@ -268,11 +268,6 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			content: combinedText
 		}
 	}).done(res => {
-		console.log("text: ");
-		console.log(res);
-		console.log("personality: ");
-		console.log(res.personality);
-
 		//Show big 5 personality in Graphs
 		var personalityDiv = $("#personality");
 		let oPercent = Math.floor(res.personality[0].percentile*100);
@@ -318,33 +313,20 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			for(facetIndex in (facet = res.personality[personalityIndex].children)){
 				curFacet = facet[facetIndex].name;
 				if (facet[facetIndex].raw_score > .5) {
-					console.log("index: "+aPersonality+" facet: "); console.log(facet);
-					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][1];
+					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][1] + " ";
 				}else {
-					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][0];
+					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][0] + " ";
 				}
 			}
 			bio += "<br>";
 		}
 		this.profileText.html(bio);
-		
-
-		// for (var i = 0; i < res.personality.length; i++) {
-		// 	var personality = res.personality[i];
-		// 	var personalityInfo = $("<div>");
-
-		// 	var personalityName = $("<p>").html(personality.name);
-		// 	var personalityPercentile = $("<p>").html(personality.percentile);
-
-		// 	personalityDiv.append(personalityName, personalityPercentile);
-		// }
 	});
 }
 
 //function to take user input and return their sentiment
 WhoUB.prototype.analyzeText = function(e) {
 	e.preventDefault();
-	console.log("Analyzing text");
 	var inputText = this.inputText.val().trim();
 	if (inputText != "") { //make sure user typed something
 		var settings = { //settings to make a CORS call to NLP
@@ -374,6 +356,7 @@ WhoUB.prototype.analyzeText = function(e) {
 			//write to firebase
 			this.pushToFirebase();
 			this.inputText.val("");
+			this.analyzezPersonality();
 		}.bind(this));
 	}
 }
