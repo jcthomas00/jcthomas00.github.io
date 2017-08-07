@@ -1,24 +1,29 @@
 ﻿body {
   background-image: url(../img/sayagata-400px.png) !important;
 }
+
 #logged-out-stuff {
   background-color: whitesmoke;
 }
+
 section .callout{
 	border: none;
 	margin: 0;
   background-color: rgba(255,255,255,0);
 }
+
 #sentiments-eq .cell .callout{
 	max-height: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
+
 #second .callout{
 	color: white;
 	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
+
 #second .callout blockquote, #second .callout cite {
 	color: whitesmoke;
 }
@@ -26,7 +31,6 @@ section .callout{
 .big-five {
   text-transform: uppercase;
   position: relative;
-  width: 3rem;
   border-bottom: 0.125rem solid #1779ba;
   margin: 0.3rem auto 0;
 }

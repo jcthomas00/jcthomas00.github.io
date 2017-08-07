@@ -333,7 +333,6 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		// 	var personality = res.personality[i];
 		// 	var personalityInfo = $("<div>");
 
-		// 	//add children to div 
 		// 	var personalityName = $("<p>").html(personality.name);
 		// 	var personalityPercentile = $("<p>").html(personality.percentile);
 
