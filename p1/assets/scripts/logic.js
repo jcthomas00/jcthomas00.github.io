@@ -319,10 +319,12 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			aPersonality = res.personality[personalityIndex].name;
 			for(facetIndex in (facet = res.personality[personalityIndex].children)){
 				curFacet = facet[facetIndex].name;
-				if (facet[facetIndex].raw_score > .5) {
-					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][1] + " ";
-				}else {
-					bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][0] + " ";
+				if(facet[facetIndex].percentile > .5){
+					if (facet[facetIndex].raw_score > .5) {
+						bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][1] + " ";
+					}else {
+						bio += PERSONALITY_GRID[aPersonality][facet[facetIndex].name][0] + " ";
+					}
 				}
 			}
 			bio += "<br>";
