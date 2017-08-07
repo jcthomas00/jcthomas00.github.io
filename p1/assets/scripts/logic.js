@@ -99,6 +99,7 @@ function WhoUB() {
 	this.profileText = $('#profile-text');
 	this.userNeeds = $('#user-needs');
 	this.userValues = $('#user-values');
+	this.wordModal = $('#wordWarningModal');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
@@ -362,6 +363,8 @@ WhoUB.prototype.analyzeText = function(e) {
 			this.inputText.val("");
 			this.analyzezPersonality();
 		}.bind(this));
+	}else{
+			this.wordModal.foundation('open');
 	}
 }
 
