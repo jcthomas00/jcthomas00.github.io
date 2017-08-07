@@ -28,9 +28,13 @@ section .callout{
 	color: whitesmoke;
 }
 
-.big-five {
+.big-five{
   text-transform: uppercase;
+}
+
+.big-five::after{
   position: relative;
+  width: 3rem;
   border-bottom: 0.125rem solid #1779ba;
   margin: 0.3rem auto 0;
 }
