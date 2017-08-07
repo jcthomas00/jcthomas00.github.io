@@ -100,7 +100,7 @@ function WhoUB() {
 	this.userNeeds = $('#user-needs');
 	this.userValues = $('#user-values');
 	this.wordModal = $('#wordWarningModal');
-	this.wordWarning = $('#wordWarningAlert);
+	this.wordWarning = $('#wordWarningAlert');
 
 	//add event listeners to DOM elements and bind them to the object's namespace
 	this.signInButton.addEventListener('click', this.signIn.bind(this));
