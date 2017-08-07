@@ -37,6 +37,7 @@ section .callout{
   width: 3rem;
   border-bottom: 0.125rem solid #1779ba;
   margin: 0.3rem auto 0;
+  margin-left: 0;
 }
 
 .user-submit-box {
