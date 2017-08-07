@@ -123,7 +123,7 @@
 							<div class="grid-x grid-padding-x">
 								<div class="small-12 medium-6 cell">
 									<div class="status-update-input-box">
-										<form>
+										<form data-abide novalidate >
 											<div class="row input-box-container">
 												<div class="columns">
 													<label> 
@@ -131,8 +131,13 @@
 												</label>
 											</div>
 										</div>
-										<div class="row medium-collapse user-action-container">
-											<div class="small-12 medium-5 columns">
+										<div class="grid-x medium-collapse user-action-container">
+										<div class="small-12 medium-7 cell">
+											        <span class="form-error">
+          Please enter some text before submitting,
+        </span>
+										</div>
+											<div class="small-12 medium-5 cell">
 												<div class="user-submit-box">
 													<input type="submit" id="send-text" class="button small" value="ANALYZE">
 												</div>
@@ -298,6 +303,13 @@
 				<!-- end foundation footer -->
 			</section>
 			<!-- Modals -->
+			<div class="reveal" id="wordWarningModal" data-reveal>
+				<h3 class="subheader">Not Enough Words for Personality Profile</h3>
+				<p id="modal-text">Please enter over 600 words to get an accurate personality assessment from us.</p>
+				<button class="close-button" data-close aria-label="Close reveal" type="button">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
 			<div class="reveal" id="sentimentModal" data-reveal>
 				<p>Score: <span id="modal-score" class="badge"></span> Magnitude:
 				<span id="modal-magnitude" class="secondary badge"></span></p>

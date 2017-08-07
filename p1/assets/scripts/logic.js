@@ -167,7 +167,9 @@ function WhoUB() {
 						}
 						this.userWelcome.html(this.userName);
 						this.profileName.html(this.userName);
-						this.profileImage.attr("src", this.profilePicUrl);					}
+						this.profileImage.attr("src", this.profilePicUrl);	
+						this.analyzezPersonality();				
+					}
 				}.bind(this));
 		} else { //user logged out - hide profile info and show login
 			console.log("logged out");
@@ -293,7 +295,8 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		}
 		this.userValues.html("");
 		for (var i = 0; i < loop; i++) {
-			this.userValues.append($("<li>").html(res.values[i].name));
+			this.userValues.append($("<li>").html(res.values[i].name).append(" - " + 
+				Math.floor(res.values[i].percentile*100) + "%"));
 		}
 
 		//Show 5 Needs
@@ -303,7 +306,8 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			loop = res.needs.length;
 		}
 		for (var i = 0; i < loop; i++) {
-			this.userNeeds.append($("<li>").html(res.needs[i].name));
+			this.userNeeds.append($("<li>").html(res.needs[i].name).append(" - " + 
+				Math.floor(res.values[i].percentile*100) + "%"));
 		}
 
 		//Display peronality Bio
