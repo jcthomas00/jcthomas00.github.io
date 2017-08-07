@@ -21,8 +21,8 @@ section .callout{
 }
 #second .callout blockquote, #second .callout cite {
 	color: whitesmoke;
-
 }
+
 .big-five {
   text-transform: uppercase;
   position: relative;
