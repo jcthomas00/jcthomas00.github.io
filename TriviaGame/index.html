@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>RPS Multiplayer</title>
-	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+	<title>Trivia Game</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  		crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/main.js" ></script>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link type="text/css" rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="container">
-<div class="row"><h1>Rock Paper Scissors!!</h1></div>
-<div class="row">
-	<div id="player1" class="col-xs-12 col-md-6">
-		<h2 class="player-title">Player:</h2>
-		<div class="form-group">
-			<label>Please enter your name to begin:</label>
-			<div class="input-group">
-				<input type="text" class="form-control name" />		
-				<span class="input-group-btn">
-	    		    <button class="btn btn-default ready" data-player="player1" type="button">Start!</button>
-				</span>
-			</div>
-		</div>
-		<div class="panel panel-info moves">
-			<div class="panel-heading">
-				<h3 class="move-text">Join the game to play.</h3>
-			</div>
-			<div class="panel-body">
-				<button class="move btn btn-lg btn-primary" data-move="rock" disabled="true">Rock</button>
-				<button class="move btn btn-lg btn-warning" data-move="paper" disabled="true">Paper</button>
-				<button class="move btn btn-lg btn-success" data-move="scissors" disabled="true">Scissors</button>			
-			</div>
-		</div>
-	</div>
-	<div id="player2" class="col-xs-12 col-md-6">
-		<h2 class="player-title">Player:</h2>
-		<div class="form-group">
-			<label>Please enter your name to begin:</label>
-			<div class="input-group">
-				<input type="text" class="form-control name" />		
-				<span class="input-group-btn">
-	    		    <button class="btn btn-default ready" data-player="player2" type="button">Start!</button>
-				</span>
-			</div>
-		</div>
-		<div class="panel panel-info moves">
-			<div class="panel-heading">
-				<h3 class="move-text">Join the game to play.</h3>
-			</div>
-			<div class="panel-body">
-				<button class="move btn btn-lg btn-primary" data-move="rock" disabled="true">Rock</button>
-				<button class="move btn btn-lg btn-warning" data-move="paper" disabled="true">Paper</button>
-				<button class="move btn btn-lg btn-success" data-move="scissors" disabled="true">Scissors</button>						
-			</div>
-		</div>
+<body class="container vertical-center">
 
-	</div>
-</div>
-<script src="assets/js/main.js"></script>
+<!-- div used to disable page clicks -->
+<div id="overlay"></div>
 
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-sm-12 col-md-9 text-center">
+				<h1>Anime Trivia Time</h1>
+			</div>
+			<div class="col-sm-12 col-md-3 text-center">
+			  <svg>
+<path id="arc1" fill="none" stroke="#000" stroke-width="10" />
+<text id="timer" fill="#000" x="60" y="90"></text>
+  </svg>
+				<!-- <h2><div id="timer"></h2> -->
+			</div>
+		</div>
+		<hr>
+		<div id="result-section">
+			<p>Correct Answers: <span id="correct"></span></p>
+			<p>Incorrect Answers: <span id="incorrect"></span></p>
+			<p>Unanswered: <span id="unanswered"></span></p>
+		</div>
+		<div id="question-section">
+			<div class="row"><div class="col-sm-12">
+				<h2 id="question" class="blockquote"></h2>
+				<ul id="answer-choices"></ul>
+			</div></div>
+			<div class="row"><div class="col-sm-12">
+				<div id="result"></div>
+			</div></div>
+		</div>
+		<div class="row"><div class="col-sm-12">
+			<button id="go" class="btn btn-lg manga-button center-block">Let's Go!</button>
+		</div></div>
+	</div><!-- end of jumbotron -->
 </body>
 </html>
