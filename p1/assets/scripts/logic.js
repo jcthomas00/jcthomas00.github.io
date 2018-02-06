@@ -273,6 +273,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 			content: combinedText
 		}
 	}).done(res => {
+		console.log(res);
 		//Show big 5 personality in Graphs
 		var personalityDiv = $("#personality");
 		let oPercent = Math.floor(res.personality[0].percentile*100);
