@@ -269,8 +269,8 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		url: 'https://who-i-b.herokuapp.com/',
 		type: 'POST',
 		dataType: 'JSON',
-		body: {
-			"content": combinedText
+		data: {
+			content: combinedText
 		}
 	}).done(res => {
 		console.log(res+"done");
