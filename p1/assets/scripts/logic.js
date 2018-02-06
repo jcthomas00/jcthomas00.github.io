@@ -270,7 +270,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		type: 'POST',
 		dataType: 'JSON',
 		body: {
-			content: combinedText
+			"content": combinedText
 		}
 	}).done(res => {
 		console.log(res);
