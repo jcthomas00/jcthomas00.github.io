@@ -266,7 +266,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 	}
 
 	$.ajax({
-		url: 'https://watson-easy.herokuapp.com/profile',
+		url: 'https://who-i-b.herokuapp.com/',
 		type: 'POST',
 		dataType: 'JSON',
 		data: {
