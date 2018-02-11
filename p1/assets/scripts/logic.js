@@ -259,7 +259,6 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 
 	//calculate if the text is over the amount;
 	//should use a modal on this
-	console.log("analyzin personality")
 	var minimumLength = 600;
 	if (combinedText.length < minimumLength) {
 		this.wordWarning.show();
@@ -390,6 +389,7 @@ $(document).ready(function() {
 	var x = new WhoUB();
 
 	$('#profile-image').click(() => {
+		console.log("yo")
 		x.analyzezPersonality();
 	});
 });
