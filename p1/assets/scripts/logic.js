@@ -271,12 +271,12 @@ console.log("analyzing")
 		dataType: 'JSON',
 		async: true,
 		crossDomain: true,
-
+		body: {
 			contentItems: [{content: combinedText,          "contenttype": "text/plain",
 			"created": 1445229489000,
 			"id": "655966138279432192",
 			"language": "en"}]
-		
+		}
 	}).done(res => {
 		console.log("done");
 		//Show big 5 personality in Graphs
