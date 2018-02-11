@@ -264,7 +264,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		this.wordWarning.show();
 		return;
 	}
-console.log("analyzing")
+console.log(combinedText)
 var settings = {
   "async": true,
   "crossDomain": true,
