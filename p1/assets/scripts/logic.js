@@ -264,7 +264,7 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		this.wordWarning.show();
 		return;
 	}
-console.log("working 6")
+console.log("working 7")
 // var settings = {
 //   "async": true,
 //   "crossDomain": true,
@@ -298,7 +298,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (res) {
-//  console.log(res);
+  console.log(res);
 		console.log("done");
 		//Show big 5 personality in Graphs
 		var personalityDiv = $("#personality");
