@@ -277,9 +277,7 @@ var settings = {
 	"data": {
 		contentItems: [{
 				content: combinedText,         
-				"contenttype": "text/plain",
-				"created": 1445229489000,
-				"id": "655966138279432192",
+				"Content-Type": "application/json",
 				"language": "en"
 		}]
 	}
