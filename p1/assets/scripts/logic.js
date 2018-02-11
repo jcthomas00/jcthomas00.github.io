@@ -264,19 +264,19 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		this.wordWarning.show();
 		return;
 	}
-
+console.log("analyzing")
 	$.ajax({
 		url: 'https://who-i-b.herokuapp.com/',
 		type: 'POST',
 		dataType: 'JSON',
 		async: true,
 		crossDomain: true,
-		data: {
+
 			contentItems: [{content: combinedText,          "contenttype": "text/plain",
 			"created": 1445229489000,
 			"id": "655966138279432192",
 			"language": "en"}]
-		}
+		
 	}).done(res => {
 		console.log("done");
 		//Show big 5 personality in Graphs
