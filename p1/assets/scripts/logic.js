@@ -292,7 +292,7 @@ var settings = {
   "url": "https://who-i-b.herokuapp.com/",
   "method": "POST",
   "headers": {
-    "Content-Type": "text/plain",
+    "Content-Type": "application/json",
     "Cache-Control": "no-cache",
     "Postman-Token": "831f73f9-53d6-7f36-e20d-ddb59ce28cf4"
   },
