@@ -271,8 +271,11 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		dataType: 'JSON',
 		async: true,
 		crossDomain: true,
-			data: {
-			content: combinedText
+		data: {
+			contentItems: [{content: combinedText,          "contenttype": "text/plain",
+			"created": 1445229489000,
+			"id": "655966138279432192",
+			"language": "en"}]
 		}
 	}).done(res => {
 		console.log("done");
@@ -389,7 +392,6 @@ $(document).ready(function() {
 	var x = new WhoUB();
 
 	$('#profile-image').click(() => {
-		console.log("yo")
 		x.analyzezPersonality();
 	});
 });
