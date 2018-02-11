@@ -269,11 +269,13 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		url: 'https://who-i-b.herokuapp.com/',
 		type: 'POST',
 		dataType: 'JSON',
-		data: {
+		async: true,
+		crossDomain: true,
+			data: {
 			content: combinedText
 		}
 	}).done(res => {
-		console.log(res+"done");
+		console.log("done");
 		//Show big 5 personality in Graphs
 		var personalityDiv = $("#personality");
 		let oPercent = Math.floor(res.personality[0].percentile*100);
