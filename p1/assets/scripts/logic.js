@@ -265,19 +265,31 @@ WhoUB.prototype.analyzezPersonality = function(e) {
 		return;
 	}
 console.log("analyzing")
-	$.ajax({
-		url: 'https://who-i-b.herokuapp.com/',
-		type: 'POST',
-		dataType: 'JSON',
-		async: true,
-		crossDomain: true,
-		body: {
-			contentItems: [{content: combinedText,          "contenttype": "text/plain",
-			"created": 1445229489000,
-			"id": "655966138279432192",
-			"language": "en"}]
-		}
-	}).done(res => {
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://who-i-b.herokuapp.com/",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "831f73f9-53d6-7f36-e20d-ddb59ce28cf4"
+  },
+  "processData": false,
+	"data": {
+		contentItems: [{
+				content: combinedText,         
+				"contenttype": "text/plain",
+				"created": 1445229489000,
+				"id": "655966138279432192",
+				"language": "en"
+		}]
+	}
+}
+
+$.ajax(settings).done(function (res) {
+//  console.log(res);
+
 		console.log("done");
 		//Show big 5 personality in Graphs
 		var personalityDiv = $("#personality");
