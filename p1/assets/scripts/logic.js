@@ -323,6 +323,7 @@ $.ajax(settings).done(function (response) {
 		if (res.values.length < loop){
 			loop = res.values.length;
 		}
+		this.userValues = $('#user-values')
 		this.userValues.html("");
 		for (var i = 0; i < loop; i++) {
 			this.userValues.append($("<li>").html(res.values[i].name).append(" - " + 
