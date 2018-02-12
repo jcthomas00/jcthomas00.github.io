@@ -294,11 +294,11 @@ var settings = {
   },
   "processData": false,
 	"data": "{\n   \"contentItems\": [\n\n      {\n         \"content\": \" " + combinedText 
-		+ " \",\n         \"contenttype\": \"text/plain\",\n         \"created\": 1445229489000,\n         \"id\": \"655966138279432192\",\n         \"language\": \"en\"\n      }\n"
+		+ " \",\n         \"contenttype\": \"text/plain\",\n         \"created\": 1445229489000,\n         \"id\": \"655966138279432192\",\n         \"language\": \"en\"\n      }]}\n"
 }
 
-$.ajax(settings).done(function (res) {
-		res = JSON.parse(res)
+$.ajax(settings).done(function (response) {
+		const res = JSON.parse(response);
   	console.log(res);
 		//Show big 5 personality in Graphs
 		var personalityDiv = $("#personality");
