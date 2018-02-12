@@ -358,6 +358,7 @@ $.ajax(settings).done(function (response) {
 			}
 			bio += "<br>";
 		}
+		this.profileText = $('#profile-text');
 		this.profileText.html(bio);
 	});
 }
