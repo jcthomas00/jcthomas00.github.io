@@ -332,6 +332,7 @@ $.ajax(settings).done(function (response) {
 
 		//Show 5 Needs
 		loop = 5;
+		this.userNeeds = $('#user-needs')
 		this.userNeeds.html("");
 		if (res.needs.length < loop){
 			loop = res.needs.length;
